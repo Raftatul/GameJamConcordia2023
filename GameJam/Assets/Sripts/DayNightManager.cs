@@ -6,7 +6,7 @@ using DG.Tweening;
 public class DayNightManager : MonoBehaviour
 {
     [SerializeField] bool night;
-    public GameEvent EndDay;
+    public GameEvent TriggerWeather;
 
     [SerializeField] private Transform moonSun;
 
@@ -15,10 +15,15 @@ public class DayNightManager : MonoBehaviour
     private float timer;
     
 
-
     private void FixedUpdate()
     {
         timer += Time.fixedDeltaTime;
+
+        if (timer == dayTime/2) 
+        {
+            TriggerWeather.TriggerEvent();
+        }
+
         if (timer >= dayTime && GlobalVariable.day)
         {
             MoonSunChange();
@@ -31,7 +36,7 @@ public class DayNightManager : MonoBehaviour
 
     void MoonSunChange()
     {
-        EndDay.TriggerEvent();
+        TriggerWeather.TriggerEvent();
         night = GlobalVariable.day;
         GlobalVariable.day = !GlobalVariable.day;
         GlobalVariable.startOfDN = true;
