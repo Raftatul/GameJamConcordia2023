@@ -6,11 +6,12 @@ using DG.Tweening;
 
 public class Branch : MonoBehaviour
 {
+    public AudioSource growSource;
     public List<GameObject> points;
 
     public void Grow(Vector3[] new_point)
     {
-        print(new_point.Length);
+        growSource.Play();
         GetComponent<LineRenderer>().positionCount = new_point.Length;
         
         for (int i = 0; i < new_point.Length; i++)

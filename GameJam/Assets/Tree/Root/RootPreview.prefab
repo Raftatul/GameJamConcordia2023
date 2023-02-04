@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 942955956675260226}
   - component: {fileID: 3079586139172800394}
-  - component: {fileID: 7322227448331448485}
+  - component: {fileID: -4057652479167083390}
   m_Layer: 0
   m_Name: RootPreview
   m_TagString: Untagged
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7322227448331448485
+--- !u!114 &-4057652479167083390
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,14 +95,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7820279837051225151}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6068f45bea38df41a8da5373cd4bcc9, type: 3}
+  m_Script: {fileID: 11500000, guid: 87e6929fbb4d279488d1e44c4c9247b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistance: 1
-  maxDistance: 5
-  rootInRange: []
+  minDistance: 1.5
+  maxDistance: 3
+  leafInRange: []
   branch: {fileID: 280265000649646526}
-  rootObject: {fileID: 7820279837051225151, guid: 4bff495015cdcde499c67198f26a27b3, type: 3}
+  leafObject: {fileID: 2278375747499516347, guid: 3ed1e67d2dba82842aad1ea49696d3ae, type: 3}
 --- !u!1001 &6928016017451646680
 PrefabInstance:
   m_ObjectHideFlags: 0

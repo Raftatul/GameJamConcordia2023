@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TreeCore : Leaf
+public class TreeCore : TreeNode
 {
     public static TreeCore instance;
     public List<GameObject> leafs;
@@ -15,7 +15,7 @@ public class TreeCore : Leaf
         {
             instance = this;
             leafs.Add(gameObject);
-            isCoreLeaf = true;
+            isCoreNode = true;
         }
         else
         {
