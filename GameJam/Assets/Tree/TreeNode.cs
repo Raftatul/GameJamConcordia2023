@@ -13,6 +13,9 @@ public class TreeNode : MonoBehaviour
         ROOT
     }
 
+    public Transform branchs;
+    public SpriteRenderer sprite;
+
     public NodeType nodeType = NodeType.LEAF;
     public LineRenderer branchRef;
     public TreeNode nodeParent;
@@ -25,15 +28,10 @@ public class TreeNode : MonoBehaviour
 
     public bool isCoreNode;
 
+    public int maxDistanceToCore = 4;
+
     private void Start()
     {
-        if (isCoreNode)
-        {
-            TreeCore.instance.leafs.Add(gameObject);
-            TreeCore.instance.roots.Add(gameObject);
-            TreeCore.instance.CameraHandler();
-            return;
-        }
         switch (nodeType)
         {
             case NodeType.LEAF:
@@ -54,14 +52,15 @@ public class TreeNode : MonoBehaviour
         
         LineRenderer newBranch = Instantiate(branchRef, transform.position, Quaternion.identity);
         Vector3 worldPos = transform.InverseTransformPoint(nodeToConnect.transform.position);
-        newBranch.transform.SetParent(transform);
+        newBranch.transform.SetParent(branchs);
 
-        nodeToConnect.GetComponent<SpriteRenderer>().enabled = false;
+        nodeToConnect.sprite.enabled = false;
+        nodeToConnect.sprite.transform.localScale -= new Vector3(nodeToConnect.GetDistanceToCore(), nodeToConnect.GetDistanceToCore(), 0) * 0.25f;
 
         nodeToConnect.transform.DOScale(Vector3.one, 2).OnComplete(() =>
         {
             nodeToConnect.transform.localScale = Vector3.zero;
-            nodeToConnect.GetComponent<SpriteRenderer>().enabled = true;
+            nodeToConnect.sprite.enabled = true;
             nodeToConnect.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
             pop.Play();
         });
@@ -76,7 +75,7 @@ public class TreeNode : MonoBehaviour
     
     public bool CanLinkToNode()
     {
-        return connectedNode.Count < maxNodeConnection;
+        return connectedNode.Count < maxNodeConnection && GetDistanceToCore() < 4;
     }
 
     public int GetDistanceToCore()
@@ -86,5 +85,13 @@ public class TreeNode : MonoBehaviour
             return 1;
         }
         return 1 + nodeParent.GetDistanceToCore();
+    }
+
+    public void ClearBranchs()
+    {
+        foreach (Transform child in branchs.transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 }

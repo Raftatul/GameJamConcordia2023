@@ -10,6 +10,11 @@ public class TreeCore : MonoBehaviour
     public List<GameObject> leafs;
     public List<GameObject> roots;
 
+    public TreeNode leafCore;
+    public TreeNode rootCore;
+
+    public int maxLeafCount = 5;
+
     int i = 0;
     int t = 5;
 
@@ -27,15 +32,22 @@ public class TreeCore : MonoBehaviour
 
     private void Update()
     {
-        if (leafs.Count >= 5)
+        if (leafs.Count > maxLeafCount)
         {
+            maxLeafCount += 5;
             for (int i = 0; i < leafs.Count; i++)
             {
-                Destroy(leafs[i]);
+                if (!leafs[i].GetComponent<TreeNode>().isCoreNode)
+                {
+                    Destroy(leafs[i]);
+                }
             }
             leafs.Clear();
+            leafs.Add(leafCore.gameObject);
+            leafCore.ClearBranchs();
+            leafCore.connectedNode.Clear();
 
-            transform.localScale += new Vector3(0.5f, 0.5f, 0.5f);
+            leafCore.transform.localScale += new Vector3(0.5f, 0.5f, 0.5f);
         }
     }
 
@@ -50,5 +62,4 @@ public class TreeCore : MonoBehaviour
             //t++;
         }
     }
-
 }
