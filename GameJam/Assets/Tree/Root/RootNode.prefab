@@ -294,6 +294,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   branchs: {fileID: 2116048731753595537}
   sprite: {fileID: 8231198912150249036}
+  minScale: 1
+  maxScale: 1
   nodeType: 1
   branchRef: {fileID: -2033671735213449370, guid: b09d69f728fba0f438976a8a8f1746e3, type: 3}
   nodeParent: {fileID: 0}

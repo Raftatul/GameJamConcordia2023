@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using DG.Tweening;
+using Random = UnityEngine.Random;
 
 public class TreeNode : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class TreeNode : MonoBehaviour
 
     public Transform branchs;
     public SpriteRenderer sprite;
+
+    public float minScale;
+    public float maxScale;
 
     public NodeType nodeType = NodeType.LEAF;
     public LineRenderer branchRef;
@@ -55,10 +59,12 @@ public class TreeNode : MonoBehaviour
         newBranch.transform.SetParent(branchs);
         
         nodeToConnect.sprite.transform.localScale = Vector3.zero;
+        float randomValue = Random.Range(minScale, maxScale);
+        Vector3 randomScale = new Vector3(randomValue, randomValue, 1);
 
         nodeToConnect.sprite.transform.DOScale(Vector3.zero, 2).OnComplete(() =>
         {
-            nodeToConnect.sprite.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+            nodeToConnect.sprite.transform.DOScale(randomScale, 0.5f).SetEase(Ease.OutBack);
             pop.Play();
         });
 

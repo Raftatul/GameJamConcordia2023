@@ -12,7 +12,9 @@ public class PlayerMouse : MonoBehaviour
     {
         ROOT,
         LEAF,
-        NONE
+        NONE,
+        DESTRUCTION,
+        TRANSITION
     }
 
     public BuildMode currentMode;
@@ -22,15 +24,19 @@ public class PlayerMouse : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
 
-        if (currentMode != BuildMode.NONE)
+        if (currentMode != BuildMode.NONE && currentMode != BuildMode.DESTRUCTION)
         {
-            if (mousePos.y < 0)
+            if (mousePos.y < TreeCore.instance.rootCore.transform.position.y)
             {
                 currentMode = BuildMode.ROOT;
             }
-            else
+            else if(mousePos.y > TreeCore.instance.leafCore.transform.position.y)
             {
                 currentMode = BuildMode.LEAF;
+            }
+            else
+            {
+                currentMode = BuildMode.TRANSITION;
             }
         }
         
@@ -46,7 +52,7 @@ public class PlayerMouse : MonoBehaviour
                 leafPreview.transform.position = mousePos;
                 rootPreview.SetActive(false);
                 break;
-            case BuildMode.NONE:
+            default:
                 leafPreview.SetActive(false);
                 rootPreview.SetActive(false);
                 break;
