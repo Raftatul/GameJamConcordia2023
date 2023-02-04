@@ -90,3 +90,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouvSpeed: 40
+  selfCloud: {fileID: 786524464376086923}

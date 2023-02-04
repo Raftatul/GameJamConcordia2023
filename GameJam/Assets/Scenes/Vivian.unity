@@ -270,7 +270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce2293756293e54292142b2fde932a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 2544718555030080499, guid: b3541fbc1ec47974ebff6532ec52991f, type: 3}
+  objectToSpawn:
+  - {fileID: 2544718555030080499, guid: b3541fbc1ec47974ebff6532ec52991f, type: 3}
   placeToSpawn:
   - {fileID: 987573880}
   - {fileID: 476885783}
@@ -278,8 +279,8 @@ MonoBehaviour:
   spawnDelay: 2
   ranDelay: 1
   timeToWait: 0
---- !u!4 &453211710
-Transform:
+--- !u!224 &453211710
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -296,6 +297,11 @@ Transform:
   m_Father: {fileID: 1903211655}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &476885782
 GameObject:
   m_ObjectHideFlags: 0

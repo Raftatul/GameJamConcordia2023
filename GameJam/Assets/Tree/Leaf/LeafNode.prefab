@@ -225,6 +225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 454304601577486492}
   - component: {fileID: 6267763190008834071}
+  - component: {fileID: 7190667970297206794}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -242,7 +243,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 9211127014064410138}
   m_RootOrder: 2
@@ -299,3 +300,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7190667970297206794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5906884494182044829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce7b1ebefdb05649a9daae723c4e424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 4f658a4471b98824ba5a73a39ddd3d9c, type: 3}
+  - {fileID: 21300000, guid: 2ab0b304d32f53943a262be1edc0939f, type: 3}
+  - {fileID: 21300000, guid: bb47f602cf860a74a9c8d081941f4f99, type: 3}
+  - {fileID: 21300000, guid: e05d14e96d2b90940bf88186f0f0d8a0, type: 3}

@@ -30,27 +30,6 @@ public class TreeCore : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (leafs.Count > maxLeafCount)
-        {
-            maxLeafCount += 5;
-            for (int i = 0; i < leafs.Count; i++)
-            {
-                if (!leafs[i].GetComponent<TreeNode>().isCoreNode)
-                {
-                    Destroy(leafs[i]);
-                }
-            }
-            leafs.Clear();
-            leafs.Add(leafCore.gameObject);
-            leafCore.ClearBranchs();
-            leafCore.connectedNode.Clear();
-
-            leafCore.transform.localScale += new Vector3(0.5f, 0.5f, 0.5f);
-        }
-    }
-
     public void CameraHandler()
     {
         i++;

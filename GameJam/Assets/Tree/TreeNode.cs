@@ -53,15 +53,12 @@ public class TreeNode : MonoBehaviour
         LineRenderer newBranch = Instantiate(branchRef, transform.position, Quaternion.identity);
         Vector3 worldPos = transform.InverseTransformPoint(nodeToConnect.transform.position);
         newBranch.transform.SetParent(branchs);
+        
+        nodeToConnect.sprite.transform.localScale = Vector3.zero;
 
-        nodeToConnect.sprite.enabled = false;
-        nodeToConnect.sprite.transform.localScale -= new Vector3(nodeToConnect.GetDistanceToCore(), nodeToConnect.GetDistanceToCore(), 0) * 0.25f;
-
-        nodeToConnect.transform.DOScale(Vector3.one, 2).OnComplete(() =>
+        nodeToConnect.sprite.transform.DOScale(Vector3.zero, 2).OnComplete(() =>
         {
-            nodeToConnect.transform.localScale = Vector3.zero;
-            nodeToConnect.sprite.enabled = true;
-            nodeToConnect.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+            nodeToConnect.sprite.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
             pop.Play();
         });
 

@@ -100,10 +100,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDistance: 1.5
   maxDistance: 3
-  canBuild: 0
-  leafInRange: []
+  nodeInRange: []
   branch: {fileID: 6602647095127409204}
-  leafObject: {fileID: 2278375747499516347, guid: 3ed1e67d2dba82842aad1ea49696d3ae, type: 3}
+  nodeObject: {fileID: 3260199199807633342, guid: 3ed1e67d2dba82842aad1ea49696d3ae, type: 3}
 --- !u!1001 &4064396237632970066
 PrefabInstance:
   m_ObjectHideFlags: 0
