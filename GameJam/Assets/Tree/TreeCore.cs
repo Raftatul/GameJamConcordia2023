@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TreeCore : TreeNode
+public class TreeCore : MonoBehaviour
 {
     public static TreeCore instance;
+    
     public List<GameObject> leafs;
     public List<GameObject> roots;
 
@@ -14,12 +15,24 @@ public class TreeCore : TreeNode
         if (instance == null)
         {
             instance = this;
-            leafs.Add(gameObject);
-            isCoreNode = true;
         }
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        if (leafs.Count >= 5)
+        {
+            for (int i = 0; i < leafs.Count; i++)
+            {
+                Destroy(leafs[i]);
+            }
+            leafs.Clear();
+
+            transform.localScale += new Vector3(0.5f, 0.5f, 0.5f);
         }
     }
 }
