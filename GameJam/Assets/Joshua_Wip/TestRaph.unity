@@ -862,7 +862,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4550306633534594753, guid: da54919180f65c44092483e666b5e6ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.23
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4550306633534594753, guid: da54919180f65c44092483e666b5e6ba, type: 3}
       propertyPath: m_LocalPosition.z
@@ -899,6 +899,14 @@ PrefabInstance:
     - target: {fileID: 6876990424736362848, guid: da54919180f65c44092483e666b5e6ba, type: 3}
       propertyPath: m_Name
       value: TreeCore (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7205459519809339516, guid: da54919180f65c44092483e666b5e6ba, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9162578412052022799, guid: da54919180f65c44092483e666b5e6ba, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da54919180f65c44092483e666b5e6ba, type: 3}
