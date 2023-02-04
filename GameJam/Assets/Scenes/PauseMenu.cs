@@ -33,13 +33,15 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
+        PlayerMouse.currentMode = PlayerMouse.BuildMode.NONE;
         isPaused = true;
     }
 
     public void ResumeGame()
     {
-        pauseMenu.SetActive(true);
+        pauseMenu.SetActive(false);
         Time.timeScale = 1f;
+        PlayerMouse.currentMode = PlayerMouse.BuildMode.TRANSITION;
         isPaused = false;
     }
 
