@@ -75,11 +75,15 @@ public class TreeNode : MonoBehaviour
     
     public bool CanLinkToNode()
     {
-        return connectedNode.Count < maxNodeConnection && GetDistanceToCore() < 4;
+        return connectedNode.Count < maxNodeConnection;
     }
 
     public int GetDistanceToCore()
     {
+        if (isCoreNode)
+        {
+            return 0;
+        }
         if (nodeParent.isCoreNode)
         {
             return 1;
