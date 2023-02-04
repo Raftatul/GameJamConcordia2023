@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 940ca04d54d2a644093dd3c8505eb6da, type: 3}
-  m_Name: event
+  m_Name: Wind
   m_EditorClassIdentifier: 

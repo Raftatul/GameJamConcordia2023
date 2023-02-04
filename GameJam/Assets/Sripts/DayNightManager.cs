@@ -5,13 +5,15 @@ using DG.Tweening;
 
 public class DayNightManager : MonoBehaviour
 {
-    public GameEvent YourEvent;
-        
+    [SerializeField] bool night;
+    public GameEvent EndDay;
+
     [SerializeField] private Transform moonSun;
 
     [SerializeField] private float dayTime;
     [SerializeField] private float nightTime;
     private float timer;
+    
 
 
     private void FixedUpdate()
@@ -29,6 +31,8 @@ public class DayNightManager : MonoBehaviour
 
     void MoonSunChange()
     {
+        EndDay.TriggerEvent();
+        night = GlobalVariable.day;
         GlobalVariable.day = !GlobalVariable.day;
         GlobalVariable.startOfDN = true;
 
