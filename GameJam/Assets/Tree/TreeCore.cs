@@ -10,6 +10,9 @@ public class TreeCore : MonoBehaviour
     public List<GameObject> leafs;
     public List<GameObject> roots;
 
+    int i = 0;
+    int t = 5;
+
     private void Awake()
     {
         if (instance == null)
@@ -35,4 +38,17 @@ public class TreeCore : MonoBehaviour
             transform.localScale += new Vector3(0.5f, 0.5f, 0.5f);
         }
     }
+
+    public void CameraHandler()
+    {
+        i++;
+
+        if (i == t)
+        {
+            Camera.main.GetComponent<OrthographicZoom>().ZoomOut();
+            i = 0;
+            //t++;
+        }
+    }
+
 }

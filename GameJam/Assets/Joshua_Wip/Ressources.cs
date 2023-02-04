@@ -26,6 +26,7 @@ public class Ressources : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("000000");
         if (collision.gameObject.tag == "Root")
         {
             Debug.Log("bbbbb");
@@ -34,9 +35,15 @@ public class Ressources : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("1111111");
         if (collision.gameObject.tag == "Root")
         {
             Debug.Log("ccccc");
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        print("FEUR");
     }
 }

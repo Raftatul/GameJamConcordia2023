@@ -38,6 +38,7 @@ public class SetUpGrid : MonoBehaviour
                 i++;
                 // Create a cube primitive at the current grid cell
                 GameObject tile = Instantiate(RandomCell());
+
                 tile.GetComponent<Ressources>().GiveRandomSize();
                 SetUpTiles(tile, z, -x);
             }

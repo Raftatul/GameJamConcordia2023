@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 411081904082102525}
   - component: {fileID: 411081904082102526}
-  - component: {fileID: 5517238429682801575}
   - component: {fileID: 313872108943143206}
+  - component: {fileID: 8197669197189385126}
+  - component: {fileID: -1958059555376948544}
   m_Layer: 0
   m_Name: Nutriment
   m_TagString: Ressources
@@ -86,20 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5517238429682801575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 411081904082102527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8151c0fdc6db77c4ab828fc2942dce2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Weight: 10
-  RessourcesAmount: 8
 --- !u!61 &313872108943143206
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -126,3 +113,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8197669197189385126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411081904082102527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16835bf2f58749c48ab7d4e761cc2da7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weight: 10
+  RessourcesAmount: 0
+--- !u!50 &-1958059555376948544
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411081904082102527}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
