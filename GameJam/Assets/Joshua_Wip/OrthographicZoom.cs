@@ -21,7 +21,7 @@ public class OrthographicZoom : MonoBehaviour
 
     public void ZoomOut()
     {
-        targetZoom ++;
+        targetZoom += 2;
         //zoom = true;
         StartCoroutine(SmoothCamera());
     }

@@ -97,5 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16835bf2f58749c48ab7d4e761cc2da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 11400000, guid: 151eed4cb5fc4ef40bf5797444a03f04, type: 2}
   Weight: 100
   RessourcesAmount: 0
