@@ -18,15 +18,11 @@ public class Branch : MonoBehaviour
             GameObject newPoint = Instantiate(new GameObject("Point"));
             points.Add(newPoint);
         }
-
-        points[0].transform.DOMove(new_point[0], 1);
-        points[1].transform.DOMove(new_point[0], 1);
-        points[2].transform.DOMove(new_point[0], 1).OnComplete(() =>
+        
+        points[1].transform.DOMove(new_point[1], 1);
+        points[2].transform.DOMove(new_point[1], 1).OnComplete(() =>
         {
-            points[1].transform.DOMove(new_point[1], 1).OnComplete(() =>
-            {
-                points[2].transform.DOMove(new_point[2], 1);
-            });
+            points[2].transform.DOMove(new_point[2], 1);
         });
     }
 

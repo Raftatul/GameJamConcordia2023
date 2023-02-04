@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class Leaf : MonoBehaviour
@@ -31,10 +32,12 @@ public class Leaf : MonoBehaviour
         Vector3 worldPos = transform.InverseTransformPoint(newLeaf.transform.position);
         newBranch.transform.SetParent(transform);
 
-        newBranch.SetPosition(0, Vector3.zero);
-        newBranch.positionCount = 3;
-        newBranch.SetPosition(1, new Vector3(worldPos.x,0));
-        newBranch.SetPosition(2, worldPos);
+        List<Vector3> points = new List<Vector3>();
+        points.Add(Vector3.zero);
+        points.Add(new Vector3(worldPos.x,0));
+        points.Add(worldPos);
+        
+        newBranch.GetComponent<Branch>().Grow(points.ToArray());
     }
 
     private void FixedUpdate()
