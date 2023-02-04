@@ -41,19 +41,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3351903280870015011}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 006bacfcd5800764ab2ef644d325ee04, type: 3}
+  m_Script: {fileID: 11500000, guid: 16835bf2f58749c48ab7d4e761cc2da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridX: 50
-  gridZ: 8
-  size: 1
-  Offset: {x: 2, y: 2}
-  Tiles:
-  - {fileID: 3827742090483061024, guid: 69beaaf9baa6f8f4982cbeb2639f07ee, type: 3}
-  - {fileID: 411081904082102527, guid: b31b1f3761fe0df4b849f95b0291f522, type: 3}
-  - {fileID: 2868108054367246225, guid: c1c92dfded4a48d478b3b54f5187bf62, type: 3}
-  - {fileID: 3827742090483061024, guid: 69beaaf9baa6f8f4982cbeb2639f07ee, type: 3}
-  - {fileID: 3827742090483061024, guid: 69beaaf9baa6f8f4982cbeb2639f07ee, type: 3}
-  - {fileID: 3827742090483061024, guid: 69beaaf9baa6f8f4982cbeb2639f07ee, type: 3}
-  startingPoint: {fileID: 0}
-  cellSize: 1
+  Weight: 10
+  RessourcesAmount: 0

@@ -31,15 +31,18 @@ public class TreeNode : MonoBehaviour
         {
             TreeCore.instance.leafs.Add(gameObject);
             TreeCore.instance.roots.Add(gameObject);
+            TreeCore.instance.CameraHandler();
             return;
         }
         switch (nodeType)
         {
             case NodeType.LEAF:
                 TreeCore.instance.leafs.Add(gameObject);
+                TreeCore.instance.CameraHandler();
                 break;
             case NodeType.ROOT:
                 TreeCore.instance.roots.Add(gameObject);
+                TreeCore.instance.CameraHandler();
                 break;
         }
     }
