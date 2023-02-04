@@ -35,7 +35,7 @@ public class Spawner : MonoBehaviour
         if (GlobalVariable.clouds)
         {
             int ran = Random.Range(0, placeToSpawn.Count);
-            Instantiate(objectToSpawn, placeToSpawn[ran].position, placeToSpawn[ran].rotation);
+            Instantiate(objectToSpawn, placeToSpawn[ran].position, placeToSpawn[ran].rotation).transform.SetParent(transform);
         }
         yield return waitRepeat;
         StartCoroutine(SpawnSeperat());
