@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-
     [Header("Object to Spawn")]
     [SerializeField] private List<GameObject> objectToSpawn;                      // The object to spawn
 
