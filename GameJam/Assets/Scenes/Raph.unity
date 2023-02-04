@@ -159,6 +159,10 @@ PrefabInstance:
       propertyPath: leafObject
       value: 
       objectReference: {fileID: 2278375747499516347, guid: 713e57e97aa17de44a7ac381e8aa0443, type: 3}
+    - target: {fileID: -4057652479167083390, guid: 41efe5b3bbd69f640a65583329914a40, type: 3}
+      propertyPath: nodeObject
+      value: 
+      objectReference: {fileID: 3260199199807633342, guid: 713e57e97aa17de44a7ac381e8aa0443, type: 3}
     - target: {fileID: 942955956675260226, guid: 41efe5b3bbd69f640a65583329914a40, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -446,6 +450,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1733953818205971794, guid: 06d02e5c78b161d49a1476aec9076017, type: 3}
+      propertyPath: nodeObject
+      value: 
+      objectReference: {fileID: 3260199199807633342, guid: 3ed1e67d2dba82842aad1ea49696d3ae, type: 3}
     - target: {fileID: 3080548073149259953, guid: 06d02e5c78b161d49a1476aec9076017, type: 3}
       propertyPath: m_RootOrder
       value: 3

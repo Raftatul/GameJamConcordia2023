@@ -67,7 +67,7 @@ public class TreeNode : MonoBehaviour
         points.Add(Vector3.zero);
         points.Add(new Vector3(worldPos.x,0));
         points.Add(worldPos);
-        
+
         newBranch.GetComponent<Branch>().Grow(points.ToArray());
     }
     

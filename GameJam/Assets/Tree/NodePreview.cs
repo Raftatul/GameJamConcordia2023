@@ -8,39 +8,53 @@ public class NodePreview : MonoBehaviour
     public float minDistance;
     public float maxDistance;
 
-    public List<GameObject> leafInRange;
+    public List<GameObject> nodeInRange;
 
     public LineRenderer branch;
 
-    public GameObject leafObject;
+    public TreeNode nodeObject;
     
     
     void Update()
     {
-        foreach (var leaf in TreeCore.instance.leafs)
+        switch (nodeObject.nodeType)
         {
-            if (Vector3.Distance(leaf.transform.position, transform.position) < maxDistance)
-            {
-                leafInRange.Add(leaf);
-            }
+            case TreeNode.NodeType.LEAF:
+                foreach (var leaf in TreeCore.instance.leafs)
+                {
+                    if (Vector3.Distance(leaf.transform.position, transform.position) < maxDistance)
+                    {
+                        nodeInRange.Add(leaf);
+                    }
+                }
+                break;
+            case TreeNode.NodeType.ROOT:
+                foreach (var leaf in TreeCore.instance.roots)
+                {
+                    if (Vector3.Distance(leaf.transform.position, transform.position) < maxDistance)
+                    {
+                        nodeInRange.Add(leaf);
+                    }
+                }
+                break;
         }
 
         SetBuildMod(false);
 
-        if (leafInRange.Count == 0)
+        if (nodeInRange.Count == 0)
         {
             return;
         }
 
-        foreach (var leaf in leafInRange)
+        foreach (var node in nodeInRange)
         {
-            if (Vector3.Distance(leaf.transform.position, transform.position) < minDistance)
+            if (Vector3.Distance(node.transform.position, transform.position) < minDistance)
             {
                 return;
             }
         }
         
-        GameObject closestLeaf = GetClosetsLeaf(leafInRange);
+        GameObject closestLeaf = GetClosetsLeaf(nodeInRange);
 
         if (!closestLeaf.GetComponent<TreeNode>().CanLinkToNode())
         {
@@ -66,7 +80,7 @@ public class NodePreview : MonoBehaviour
 
     private void LateUpdate()
     {
-        leafInRange.Clear();
+        nodeInRange.Clear();
     }
 
     public GameObject GetClosetsLeaf(List<GameObject> targetLeaf)
@@ -104,7 +118,7 @@ public class NodePreview : MonoBehaviour
     {
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         worldPos.z = 0;
-        GameObject new_leaf = Instantiate(leafObject, worldPos, Quaternion.identity);
-        closestLeaf.GetComponent<TreeNode>().ConnectToNode(new_leaf.GetComponent<TreeNode>());
+        TreeNode newNode = Instantiate(nodeObject, worldPos, Quaternion.identity);
+        closestLeaf.GetComponent<TreeNode>().ConnectToNode(newNode);
     }
 }
