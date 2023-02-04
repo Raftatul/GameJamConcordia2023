@@ -13,11 +13,6 @@ public class DayNightManager : MonoBehaviour
     [SerializeField] private float nightTime;
     private float timer;
 
-    //private void Start()
-    //{
-    //    YourEvent.TriggerEvent();
-        
-    //}
 
     private void FixedUpdate()
     {

@@ -11,6 +11,16 @@ public class RessourceBars : MonoBehaviour
     public RessourceBars ressourceBar;
     public int maxLevel = 100;
     public int currentLevel;
+
+    //public enum Type
+    //{
+    //    water,
+    //    light,
+    //    nutriment,
+    //    air
+    //}
+
+    //public Type ressourceType;
     
     #endregion
 
@@ -22,14 +32,14 @@ public class RessourceBars : MonoBehaviour
 
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.A) == true) && (ressourceBar.currentLevel > 0))
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            ressourceBar.LevelChange(-10);
+            LevelChange(GlobalVariable.nutriment);
         }
 
-        if ((Input.GetKeyDown(KeyCode.Z) == true) && (ressourceBar.currentLevel < 100))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            ressourceBar.LevelChange(10);
+            LevelChange(10);
         }
     }
 
@@ -48,8 +58,14 @@ public class RessourceBars : MonoBehaviour
     void LevelChange(int damage)
     {
         currentLevel += damage;
+        currentLevel = Mathf.Clamp(currentLevel, 0, 100);
         SetLevel(currentLevel);
     }
 
+    //void SetGlobalVar(int globalVar, int multip)
+    //{
+    //    globalVar = Mathf.Clamp(globalVar, 0, 100);
+    //    globalVar += multip*10;
+    //}
     #endregion 
 }

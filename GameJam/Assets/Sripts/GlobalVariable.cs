@@ -9,8 +9,8 @@ public class GlobalVariable
     public static bool clouds;
     public static bool rain;
     
-    public static float water;
-    public static float light;
-    public static float nutriment;
-    public static float air;
+    public static int water = 50;
+    public static int light = 50;
+    public static int nutriment = 50;
+    public static int air = 50;
 }
