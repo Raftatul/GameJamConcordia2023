@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Root : MonoBehaviour
 {
@@ -21,6 +22,15 @@ public class Root : MonoBehaviour
         LineRenderer newBranch = Instantiate(branchRef, transform.position, Quaternion.identity);
         Vector3 worldPos = transform.InverseTransformPoint(newRoot.transform.position);
         newBranch.transform.SetParent(transform);
+        
+        newRoot.GetComponent<SpriteRenderer>().enabled = false;
+
+        newRoot.transform.DOScale(Vector3.one, 2).OnComplete(() =>
+        {
+            newRoot.transform.localScale = Vector3.zero;
+            newRoot.GetComponent<SpriteRenderer>().enabled = true;
+            newRoot.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        });
 
         List<Vector3> points = new List<Vector3>();
         points.Add(Vector3.zero);

@@ -32,6 +32,15 @@ public class Leaf : MonoBehaviour
         Vector3 worldPos = transform.InverseTransformPoint(newLeaf.transform.position);
         newBranch.transform.SetParent(transform);
 
+        newLeaf.GetComponent<SpriteRenderer>().enabled = false;
+
+        newLeaf.transform.DOScale(Vector3.one, 2).OnComplete(() =>
+        {
+            newLeaf.transform.localScale = Vector3.zero;
+            newLeaf.GetComponent<SpriteRenderer>().enabled = true;
+            newLeaf.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        });
+
         List<Vector3> points = new List<Vector3>();
         points.Add(Vector3.zero);
         points.Add(new Vector3(worldPos.x,0));
