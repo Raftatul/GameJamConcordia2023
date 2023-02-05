@@ -8,7 +8,7 @@ public class SunMouvement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Leaf"))
         {
-            GlobalVariable.light += 2;
+            GlobalVariable.light += 1;
         }
         Destroy(gameObject);
     }
