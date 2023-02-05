@@ -51,16 +51,16 @@ public class Ressources : MonoBehaviour
 
     public void GiveRandomSize()
     {
-        float x = Random.Range(0.91f, 1.11f);
-        float y = Random.Range(0.91f, 1.11f);
-        transform.localScale = new Vector2(x, y);
-        transform.DOScale(new Vector2(x, y), 0.01f);
+        float x = Random.Range(0.5f, 1.5f);
+        //float y = Random.Range(0.91f, 1.11f);
+        transform.localScale = new Vector2(x, x);
+        transform.DOScale(new Vector2(x, x), 0.01f);
 
         //Debug.Log(new Vector2(x, y));
         //Debug.Log(gameObject.GetComponent<Transform>().localScale);
         //Debug.Log("______________________");
 
-        RessourcesAmount = (x * y) * 20;
+        RessourcesAmount = (x * x) * 20;
         RessourcesCurr = RessourcesAmount;
     }
 
