@@ -13,14 +13,26 @@ public class CloudMouvement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        this.transform.position += new Vector3(-1 * mouvSpeed * Time.deltaTime,0,0);
+        if (!fade)
+        {
+            this.transform.position += new Vector3(-1 * mouvSpeed * Time.deltaTime,0,0);
+        }
 
         if (!GlobalVariable.clouds && !fade)
         {
             fade = true;
-            selfCloud.DOFade(0, 3f).OnComplete(() => {
+            selfCloud.DOFade(0, 0.5f).OnComplete(() => {
                 Destroy(gameObject); 
             });
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        fade = true;
+
+        selfCloud.DOFade(0, 0.5f).OnComplete(() => {
+            Destroy(gameObject);
+        });
     }
 }
