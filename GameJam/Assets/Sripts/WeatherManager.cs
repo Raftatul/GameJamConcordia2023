@@ -21,22 +21,22 @@ public class WeatherManager : MonoBehaviour
     public Transform Spawner;
 
 
-    private void FixedUpdate()
-    {
-        //if (GlobalVariable.startOfDN)
-        //{
-        //    GlobalVariable.startOfDN = false;
-        //    GlobalVariable.rain = false;
-        //    GlobalVariable.clouds = false;
+    //private void FixedUpdate()
+    //{
+    //    if (GlobalVariable.startOfDN)
+    //    {
+    //        GlobalVariable.startOfDN = false;
+    //        GlobalVariable.rain = false;
+    //        GlobalVariable.clouds = false;
 
-        //    GlobalVariable.clouds = EventActivatedYN(cloudChance);
+    //        GlobalVariable.clouds = EventActivatedYN(cloudChance);
 
-        //    if (GlobalVariable.clouds)
-        //    {
-        //        GlobalVariable.rain = EventActivatedYN(rainChance);
-        //    }
-        //}
-    }
+    //        if (GlobalVariable.clouds)
+    //        {
+    //            GlobalVariable.rain = EventActivatedYN(rainChance);
+    //        }
+    //    }
+    //}
 
     bool EventActivatedYN(float x)
     {
