@@ -8,11 +8,7 @@ public class Characters : MonoBehaviour
     public Camera cam;
     public float speed = 1.0f;
     public Vector3 direction = Vector3.zero;
-    public float bottomLimit = 0.5f;
-    public float topLimit = 0.60f;
-    public float attractionStrength = 1f;
     public Rigidbody2D charRigid;
-    public float mult = 0.1f;
 
     void Start()
     {
@@ -25,19 +21,7 @@ public class Characters : MonoBehaviour
             transform.position += direction * speed * Time.deltaTime;
             direction = (direction + Random.onUnitSphere * 0.1f).normalized;
 
-            Vector3 screenPoint = cam.WorldToViewportPoint(transform.position);
-
-            // Redirection vers l'intérieur lorsque la mouche se rapproche du sol
-            if (screenPoint.y < bottomLimit)
-            {
-                direction = Vector3.Lerp(direction, -direction, (bottomLimit - screenPoint.y) / bottomLimit);
-            }
-
-            // Redirection vers l'intérieur lorsque la mouche se rapproche du plafond
-            if (screenPoint.y > topLimit)
-            {
-                direction = Vector3.Lerp(direction, -direction, (screenPoint.y - topLimit) / topLimit);
-            }
+            Vector3 screenPoint = cam.WorldToViewportPoint(transform.position);           
 
             if (screenPoint.x > 1)
             {
@@ -49,15 +33,13 @@ public class Characters : MonoBehaviour
                 screenPoint.x = 1;
                 transform.position = cam.ViewportToWorldPoint(screenPoint);
             }
-            if (screenPoint.y > 1)
+            if (screenPoint.y >= 1.1)
             {
-                screenPoint.y = 0;
-                transform.position = cam.ViewportToWorldPoint(screenPoint);
+                direction = -direction;
             }
-            else if (screenPoint.y < 0)
+            else if (screenPoint.y <= 0.5)
             {
-                screenPoint.y = 1;
-                transform.position = cam.ViewportToWorldPoint(screenPoint);
+                direction = -direction;
             }
 
             transform.position = new Vector3(transform.position.x, transform.position.y, 0);
@@ -147,4 +129,16 @@ public class Characters : MonoBehaviour
         //    Vector3 center = new Vector3(0.5f, 0.5f, 0f);
         //    Vector3 directionToCenter = center - screenPoint;
         //    direction += directionToCenter * redirectionForce * Time.deltaTime;
-        //}
+        //}  
+        
+//// Redirection vers l'intérieur lorsque la mouche se rapproche du sol
+            //if (screenPoint.y < bottomLimit)
+            //{
+            //    direction = Vector3.Lerp(direction, -direction, (bottomLimit - screenPoint.y) / bottomLimit);
+            //}
+
+            //// Redirection vers l'intérieur lorsque la mouche se rapproche du plafond
+            //if (screenPoint.y > topLimit)
+            //{
+            //    direction = Vector3.Lerp(direction, -direction, (screenPoint.y - topLimit) / topLimit);
+            //}
