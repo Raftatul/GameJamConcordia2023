@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +8,19 @@ public class RessourceBars : MonoBehaviour
 {
     #region Variables
 
+    public enum ResourceTargets
+    {
+        WATER,
+        AIR,
+        NUTRIMENT,
+        LIGHT
+    }
+
+    public ResourceTargets resourceTarget;
+
     public Slider slider;
     //public RessourceBars ressourceBar;
-    public int maxLevel = 300;
+    private int maxLevel = 300;
     public int currentLevel;
     
     #endregion
@@ -20,20 +31,24 @@ public class RessourceBars : MonoBehaviour
         SetMaxLevel(maxLevel);
     }
 
-    //void Update()
-    //{
-    //    //conditions à déterminer pour modifier les niveaux.
-
-    //    if (input.getkeydown(keycode.a))
-    //    {
-    //        levelchange(globalvariable.nutriment);
-    //    }
-
-    //    if (input.getkeydown(keycode.z))
-    //    {
-    //        levelchange(10);
-    //    }
-    //}
+    void Update()
+    {
+        switch (resourceTarget)
+        {
+            case ResourceTargets.WATER:
+                SetLevel(GlobalVariable.water);
+                break;
+            case ResourceTargets.AIR:
+                SetLevel(GlobalVariable.air);
+                break;
+            case ResourceTargets.NUTRIMENT:
+                SetLevel(GlobalVariable.nutriment);
+                break;
+            case ResourceTargets.LIGHT:
+                SetLevel(GlobalVariable.light);
+                break;
+        }
+    }
 
     #region Methods
 

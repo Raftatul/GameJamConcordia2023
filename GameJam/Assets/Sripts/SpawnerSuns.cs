@@ -15,7 +15,7 @@ public class SpawnerSuns : MonoBehaviour
     private float timeToWait;
 
     [Header("Screen Bounds")]
-    [SerializeField] private Vector2 coordonate;
+    [SerializeField] private Vector2 cordonates = GlobalVariable.camBounds;
 
     void Awake()
     {
@@ -23,9 +23,7 @@ public class SpawnerSuns : MonoBehaviour
     }
 
     IEnumerator SpawnSeperat()
-    {
-        coordonate = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-        
+    {        
         if (ranDelay)
         {
             timeToWait = Random.Range(0.5f,spawnDelay);
@@ -37,19 +35,19 @@ public class SpawnerSuns : MonoBehaviour
         WaitForSeconds waitRepeat = new(timeToWait);
         if (GlobalVariable.day)
         {
-            int ran = Random.Range(-(int)coordonate.x + (int)offset, (int)coordonate.x - (int)offset);
+            int ran = Random.Range(-(int)GlobalVariable.camBounds.x + (int)offset, (int)GlobalVariable.camBounds.x - (int)offset);
 
             if (GlobalVariable.clouds)
             {
                 int ran2 = Random.Range(0, 100);
                 if (ran2 <= 50)
                 {
-                    Instantiate(objectToSpawn, new Vector2(ran,coordonate.y+2), Quaternion.identity).transform.SetParent(transform);
+                    Instantiate(objectToSpawn, new Vector2(ran,GlobalVariable.camBounds.y+2), Quaternion.identity).transform.SetParent(transform);
                 }
             }
             else if (!GlobalVariable.rain)
             {
-                Instantiate(objectToSpawn, new Vector2(ran, coordonate.y + 2), Quaternion.identity).transform.SetParent(transform);
+                Instantiate(objectToSpawn, new Vector2(ran, GlobalVariable.camBounds.y + 2), Quaternion.identity).transform.SetParent(transform);
             }
         }
         yield return waitRepeat;

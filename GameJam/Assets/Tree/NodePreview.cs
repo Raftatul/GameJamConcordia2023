@@ -14,8 +14,7 @@ public class NodePreview : MonoBehaviour
     public LineRenderer branch;
 
     public TreeNode nodeObject;
-    
-    
+
     void Update()
     {
         SetBuildMod(false);
@@ -65,6 +64,13 @@ public class NodePreview : MonoBehaviour
             return;
         }
 
+        int distanceCost = (int)Vector2.Distance(transform.position, closestNode.transform.position);
+        distanceCost = Mathf.Clamp(distanceCost, 1, 20);
+        if (!EnoughResource(distanceCost))
+        {
+            return;
+        }
+
         SetBuildMod(true);
 
         Vector3 worldPos = transform.InverseTransformPoint(closestNode.transform.position);
@@ -90,6 +96,7 @@ public class NodePreview : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0))
         {
+            ConsumeResource(distanceCost);
             BuildLeaf(closestNode);
         }
     }
@@ -131,5 +138,63 @@ public class NodePreview : MonoBehaviour
         TreeNode newNode = Instantiate(nodeObject, worldPos, Quaternion.identity);
         newNode.transform.SetParent(closestLeaf.transform);
         closestLeaf.GetComponent<TreeNode>().ConnectToNode(newNode);
+    }
+
+    private bool EnoughResource(float distance)
+    {
+        foreach (var resource in nodeObject.resourceConsumes)
+        {
+            switch (resource)
+            {
+                case TreeNode.ResourceConsume.WATER:
+                    if (distance * nodeObject.priceMultiplier >= GlobalVariable.water)
+                    {
+                        return false;
+                    }
+                    break;
+                case TreeNode.ResourceConsume.AIR:
+                    if (distance * nodeObject.priceMultiplier >= GlobalVariable.air)
+                    {
+                        return false;
+                    }
+                    break;
+                case TreeNode.ResourceConsume.NUTRIMENT:
+                    if (distance * nodeObject.priceMultiplier >= GlobalVariable.nutriment)
+                    {
+                        return false;
+                    }
+                    break;
+                case TreeNode.ResourceConsume.LIGHT:
+                    if (distance * nodeObject.priceMultiplier >= GlobalVariable.light)
+                    {
+                        return false;
+                    }
+                    break;
+            }
+        }
+
+        return true;
+    }
+
+    private void ConsumeResource(int distance)
+    {
+        foreach (var resource in nodeObject.resourceConsumes)
+        {
+            switch (resource)
+            {
+                case TreeNode.ResourceConsume.WATER:
+                    GlobalVariable.water -= distance * nodeObject.priceMultiplier;
+                    break;
+                case TreeNode.ResourceConsume.AIR:
+                    GlobalVariable.air -= distance * nodeObject.priceMultiplier;
+                    break;
+                case TreeNode.ResourceConsume.NUTRIMENT:
+                    GlobalVariable.nutriment -= distance * nodeObject.priceMultiplier;
+                    break;
+                case TreeNode.ResourceConsume.LIGHT:
+                    GlobalVariable.light -= distance * nodeObject.priceMultiplier;
+                    break;
+            }
+        }
     }
 }
