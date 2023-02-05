@@ -54,7 +54,7 @@ public class TreeNode : MonoBehaviour
         
         LineRenderer newBranch = Instantiate(branchRef, transform.position, Quaternion.identity);
         Vector3 worldPos = transform.InverseTransformPoint(nodeToConnect.transform.position);
-        newBranch.transform.SetParent(branchs);
+        newBranch.transform.SetParent(nodeToConnect.transform);
         
         nodeToConnect.sprite.transform.localScale = Vector3.zero;
         float randomValue = Random.Range(minScale, maxScale);
@@ -110,6 +110,24 @@ public class TreeNode : MonoBehaviour
         foreach (Transform child in branchs.transform)
         {
             Destroy(child.gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (!nodeParent)
+        {
+            return;
+        }
+        nodeParent.connectedNode.Remove(this);
+        switch (nodeType)
+        {
+            case NodeType.LEAF:
+                TreeCore.instance.leafs.Remove(gameObject);
+                break;
+            case NodeType.ROOT:
+                TreeCore.instance.roots.Remove(gameObject);
+                break;
         }
     }
 }
