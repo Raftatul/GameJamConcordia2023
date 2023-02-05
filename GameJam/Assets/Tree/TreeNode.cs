@@ -28,7 +28,7 @@ public class TreeNode : MonoBehaviour
 
     public AudioSource pop;
     
-    public static int maxNodeConnection = 2;
+    public static int maxNodeConnection = 4;
 
     public bool isCoreNode;
 

@@ -99,7 +99,10 @@ public class NodePreview : MonoBehaviour
         {
             if (leaf.GetComponent<TreeNode>().GetDistanceToCore() < closest.GetComponent<TreeNode>().GetDistanceToCore())
             {
-                closest = leaf;
+                if (leaf.GetComponent<TreeNode>().CanLinkToNode())
+                {
+                    closest = leaf;
+                }
             }
         }
         return closest;
