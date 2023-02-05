@@ -21,6 +21,7 @@ public class Characters : MonoBehaviour
 
     void Update()
     {
+
             transform.position += direction * speed * Time.deltaTime;
             direction = (direction + Random.onUnitSphere * 0.1f).normalized;
 

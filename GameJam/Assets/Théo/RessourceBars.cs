@@ -9,7 +9,7 @@ public class RessourceBars : MonoBehaviour
 
     public Slider slider;
     //public RessourceBars ressourceBar;
-    public int maxLevel = 100;
+    public int maxLevel = 300;
     public int currentLevel;
     
     #endregion
@@ -50,7 +50,7 @@ public class RessourceBars : MonoBehaviour
     void LevelChange(int damage)
     {
         currentLevel += damage;
-        currentLevel = Mathf.Clamp(currentLevel, 0, 100);
+        currentLevel = Mathf.Clamp(currentLevel, 0, 300);
         SetLevel(currentLevel);
     }
 
