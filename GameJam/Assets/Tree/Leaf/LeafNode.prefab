@@ -216,7 +216,6 @@ MonoBehaviour:
   connectedNode: []
   pop: {fileID: 1276425139272281725}
   isCoreNode: 0
-  maxDistanceToCore: 4
 --- !u!1 &5906884494182044829
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,10 +318,20 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 05d06fcec9b59414e9f7c64178e63579, type: 3}
   - {fileID: 21300000, guid: 32e4af6d84785254491c53f1e3f0cb20, type: 3}
   - {fileID: 21300000, guid: 071bf1b6a795c144189913f53af7b97c, type: 3}
+  - {fileID: 21300000, guid: 144b1dfbc0cb1cb4787ccda6c833639c, type: 3}
+  - {fileID: 21300000, guid: 26dbdc7fcb553724bb2ff0a8072fc32e, type: 3}
+  - {fileID: 21300000, guid: 9f5504ab3b38aeb48b87f039693ff9fc, type: 3}
+  - {fileID: 21300000, guid: b7e5e2f4b64e13541b973bb7dd88f922, type: 3}
   - {fileID: 21300000, guid: 4f658a4471b98824ba5a73a39ddd3d9c, type: 3}
   - {fileID: 21300000, guid: 2ab0b304d32f53943a262be1edc0939f, type: 3}
   - {fileID: 21300000, guid: bb47f602cf860a74a9c8d081941f4f99, type: 3}
   - {fileID: 21300000, guid: e05d14e96d2b90940bf88186f0f0d8a0, type: 3}
+  - {fileID: 21300000, guid: cc1ef2b4e7c5ebb4a844e6bb62c31d76, type: 3}
+  - {fileID: 21300000, guid: 51a1c242f3afc594b8da85169942f9fc, type: 3}
+  - {fileID: 21300000, guid: 07451a791ef856d468534e48366b596c, type: 3}
+  - {fileID: 21300000, guid: ce35dcac60e56ae478961b0b78185ccd, type: 3}
+  - {fileID: 21300000, guid: e5d3b132b8e295b4d910d3432624548e, type: 3}
+  - {fileID: 21300000, guid: 035540ff0d0555d49a0ea8cc333b3a0e, type: 3}
   - {fileID: 21300000, guid: 8bb3116842298c74795877d725d9a1cc, type: 3}
   - {fileID: 21300000, guid: d3fab6158b7a1ad47aa8e016b947f560, type: 3}
   - {fileID: 21300000, guid: 7ea02cc656eea1843bfa6878817f50f7, type: 3}

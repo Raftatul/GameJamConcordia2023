@@ -28,11 +28,9 @@ public class TreeNode : MonoBehaviour
 
     public AudioSource pop;
     
-    public static int maxNodeConnection = 3;
+    public static int maxNodeConnection = 2;
 
     public bool isCoreNode;
-
-    public int maxDistanceToCore = 4;
 
     private void Start()
     {
@@ -69,9 +67,22 @@ public class TreeNode : MonoBehaviour
         });
 
         List<Vector3> points = new List<Vector3>();
-        points.Add(Vector3.zero);
-        points.Add(new Vector3(worldPos.x,0));
-        points.Add(worldPos);
+
+        float xDifference = transform.position.x - nodeToConnect.transform.position.x;
+        float yDifference = transform.position.y - nodeToConnect.transform.position.y;
+    
+        if (Mathf.Abs(xDifference) > Mathf.Abs(yDifference))
+        {
+            points.Add(Vector3.zero);
+            points.Add(new Vector3(worldPos.x,0));
+            points.Add(worldPos);
+        }
+        else
+        {
+            points.Add(Vector3.zero);
+            points.Add(new Vector3(0,worldPos.y));
+            points.Add(worldPos);
+        }
         
         newBranch.GetComponent<Branch>().Grow(points.ToArray());
     }

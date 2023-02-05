@@ -23,18 +23,20 @@ public class NodePreview : MonoBehaviour
             case TreeNode.NodeType.LEAF:
                 foreach (var leaf in TreeCore.instance.leafs)
                 {
-                    if (Vector3.Distance(leaf.transform.position, transform.position) < maxDistance)
+                    float distance = Vector3.Distance(leaf.transform.position, transform.position);
+                    if (distance > minDistance && distance < maxDistance)
                     {
                         nodeInRange.Add(leaf);
                     }
                 }
                 break;
             case TreeNode.NodeType.ROOT:
-                foreach (var leaf in TreeCore.instance.roots)
+                foreach (var root in TreeCore.instance.roots)
                 {
-                    if (Vector3.Distance(leaf.transform.position, transform.position) < maxDistance)
+                     float distance = Vector3.Distance(root.transform.position, transform.position);
+                    if (distance > minDistance && distance < maxDistance)
                     {
-                        nodeInRange.Add(leaf);
+                        nodeInRange.Add(root);
                     }
                 }
                 break;
@@ -47,35 +49,39 @@ public class NodePreview : MonoBehaviour
             return;
         }
 
-        foreach (var node in nodeInRange)
-        {
-            if (Vector3.Distance(node.transform.position, transform.position) < minDistance)
-            {
-                return;
-            }
-        }
-        
-        GameObject closestLeaf = GetClosetsLeaf(nodeInRange);
+        GameObject closestNode = GetClosestNode(nodeInRange);
 
-        if (!closestLeaf.GetComponent<TreeNode>().CanLinkToNode())
+        if (!closestNode.GetComponent<TreeNode>().CanLinkToNode())
         {
             return;
         }
 
         SetBuildMod(true);
 
-        Vector3 worldPos = transform.InverseTransformPoint(closestLeaf.transform.position);
+        Vector3 worldPos = transform.InverseTransformPoint(closestNode.transform.position);
 
-        if (closestLeaf.GetComponent<TreeNode>().CanLinkToNode())
-        {
-            branch.positionCount = 3;
-            branch.SetPosition(1, new Vector3(worldPos.x,0));
-            branch.SetPosition(2, worldPos);
+        if (closestNode.GetComponent<TreeNode>().CanLinkToNode())
+        {            
+            float xDifference = transform.position.x - closestNode.transform.position.x;
+            float yDifference = transform.position.y - closestNode.transform.position.y;
+    
+            if (Mathf.Abs(xDifference) < Mathf.Abs(yDifference))
+            {
+                branch.positionCount = 3;
+                branch.SetPosition(1, new Vector3(worldPos.x,0));
+                branch.SetPosition(2, worldPos);
+            }
+            else
+            {
+                branch.positionCount = 3;
+                branch.SetPosition(1, new Vector3(0,worldPos.y));
+                branch.SetPosition(2, worldPos);
+            }
         }
         
         if (Input.GetMouseButtonDown(0))
         {
-            BuildLeaf(closestLeaf);
+            BuildLeaf(closestNode);
         }
     }
 
@@ -84,20 +90,19 @@ public class NodePreview : MonoBehaviour
         nodeInRange.Clear();
     }
 
-    public GameObject GetClosetsLeaf(List<GameObject> targetLeaf)
+    public GameObject GetClosestNode(List<GameObject> targetLeaf)
     {
-        GameObject closets = targetLeaf[0];
-        float closestDistance = Vector3.Distance(transform.position, closets.transform.position);
+        targetLeaf.Sort((x, y) => Vector2.Distance(x.transform.position, transform.position).CompareTo(Vector2.Distance(y.transform.position, transform.position)));
+        
+        GameObject closest = targetLeaf[0];
         foreach (var leaf in targetLeaf)
         {
-            if (Vector3.Distance(transform.position, leaf.transform.position) < closestDistance)
+            if (leaf.GetComponent<TreeNode>().GetDistanceToCore() < closest.GetComponent<TreeNode>().GetDistanceToCore())
             {
-                closets = leaf;
-                closestDistance = Vector3.Distance(transform.position, leaf.transform.position);
+                closest = leaf;
             }
         }
-
-        return closets;
+        return closest;
     }
 
     public void SetBuildMod(bool value)
@@ -124,6 +129,7 @@ public class NodePreview : MonoBehaviour
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         worldPos.z = 0;
         TreeNode newNode = Instantiate(nodeObject, worldPos, Quaternion.identity);
+        newNode.transform.SetParent(closestLeaf.transform);
         closestLeaf.GetComponent<TreeNode>().ConnectToNode(newNode);
     }
 }

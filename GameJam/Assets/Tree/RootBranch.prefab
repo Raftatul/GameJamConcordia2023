@@ -182,7 +182,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 47c7fa3e8f7997e479c4932a1d6cf3f9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -275,3 +275,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   growSource: {fileID: 5791554617412454823}
   points: []
+  followPoints: 1
