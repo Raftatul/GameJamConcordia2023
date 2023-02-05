@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using DG.Tweening;
 using Random = UnityEngine.Random;
 
@@ -12,7 +11,7 @@ public class CloudMouvement : MonoBehaviour
     [SerializeField] private float maxSpeed;
     
     [SerializeField] private float mouvSpeed = 40;
-    [SerializeField] private Image selfCloud;
+    [SerializeField] private SpriteRenderer selfCloud;
     private bool fade = false;
 
     private void Awake()
@@ -24,20 +23,16 @@ public class CloudMouvement : MonoBehaviour
     {
         if (!fade)
         {
-            this.transform.position += new Vector3(-1 * mouvSpeed * Time.deltaTime,0,0);
-        }
-
-        if (!GlobalVariable.clouds && !fade)
-        {
-            fade = true;
-            selfCloud.DOFade(0, 0.5f).OnComplete(() => {
-                Destroy(gameObject); 
-            });
+            transform.position += new Vector3(-1 * mouvSpeed * Time.deltaTime,0,0);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D col)
     {
+        if (!col.gameObject.CompareTag("Leaf"))
+        {
+            return;
+        }
         fade = true;
 
         GlobalVariable.air += 1;
@@ -45,5 +40,10 @@ public class CloudMouvement : MonoBehaviour
         selfCloud.DOFade(0, 0.5f).OnComplete(() => {
             Destroy(gameObject);
         });
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }

@@ -35,7 +35,7 @@ public class Spawner : MonoBehaviour
         WaitForSeconds waitRepeat = new(timeToWait);
         int ran = Random.Range(0 + (int)offset, (int)GlobalVariable.camBounds.y - (int)offset);
 
-        if (GlobalVariable.rain || GlobalVariable.clouds)
+        if (true)
         {
              GameObject truc = Instantiate(objectToSpawn, new Vector2(GlobalVariable.camBounds.x + offset,ran), Quaternion.identity);
              truc.transform.SetParent(transform);

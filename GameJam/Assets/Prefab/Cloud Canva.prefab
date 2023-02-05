@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 2435145733019115765}
   - component: {fileID: 1912019392432454771}
   - component: {fileID: 9107913833036721359}
-  m_Layer: 5
+  - component: {fileID: -3056522617496178800}
+  m_Layer: 8
   m_Name: Cloud Canva
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +100,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -130,7 +131,7 @@ MonoBehaviour:
   minSpeed: 0.1
   maxSpeed: 0.8
   mouvSpeed: 0.5
-  selfCloud: {fileID: 0}
+  selfCloud: {fileID: 4701763393333651950}
 --- !u!114 &2435145733019115765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,3 +178,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minScale: 0.5
   maxScale: 1.5
+--- !u!50 &-3056522617496178800
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2544718555030080499}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
