@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeType: 1
-  resourceConsumes: 0100000002000000
+  resourceConsumes: 0000000002000000
   sprite: {fileID: 8231198912150249036}
   minScale: 1
   maxScale: 1
@@ -302,7 +302,7 @@ MonoBehaviour:
   connectedNode: []
   pop: {fileID: 1276425139272281725}
   isCoreNode: 0
-  priceMultiplier: 5
+  priceMultiplier: 2
 --- !u!61 &1047260770964616632
 BoxCollider2D:
   m_ObjectHideFlags: 0
