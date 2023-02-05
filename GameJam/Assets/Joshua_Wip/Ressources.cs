@@ -51,8 +51,8 @@ public class Ressources : MonoBehaviour
 
     public void GiveRandomSize()
     {
-        float x = Random.Range(0.1f, 1.5f);
-        float y = Random.Range(0.1f, 1.5f);
+        float x = Random.Range(0.91f, 1.11f);
+        float y = Random.Range(0.91f, 1.11f);
         transform.localScale = new Vector2(x, y);
         transform.DOScale(new Vector2(x, y), 0.01f);
 
