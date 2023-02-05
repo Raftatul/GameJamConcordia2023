@@ -14,4 +14,6 @@ public class GlobalVariable
     public static int light = 50;
     public static int nutriment = 50;
     public static int air = 50;
+
+    public static Vector2 camBounds;
 }
