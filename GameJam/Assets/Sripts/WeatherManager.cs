@@ -14,9 +14,6 @@ public class WeatherManager : MonoBehaviour
     [SerializeField] private float WindChance = 40;
 
 
-    [SerializeField] private bool clouds;
-    [SerializeField] private bool rains;
-
     public GameObject WindEffect;
     public Transform Spawner;
 
@@ -63,12 +60,21 @@ public class WeatherManager : MonoBehaviour
             GlobalVariable.clouds = EventActivatedYN(cloudChance);
             if (GlobalVariable.clouds)
             {
+                //Debug.Log("is cloud");
                 Cloud.TriggerEvent();
-                WindChance += 20;
+                //WindChance += 20;
             }
             else if (!GlobalVariable.clouds)
             {
-                WindChance -= 20;
+                //WindChance -= 20;
+            }
+
+
+            GlobalVariable.wind = EventActivatedYN(WindChance);
+            if (GlobalVariable.wind)
+            {
+                //Debug.Log("is wind");
+                Wind.TriggerEvent();
             }
 
             if (GlobalVariable.clouds)
@@ -76,6 +82,7 @@ public class WeatherManager : MonoBehaviour
                 GlobalVariable.rain = EventActivatedYN(rainChance);
                 if (GlobalVariable.rain)
                 {
+                    //Debug.Log("is rain");
                     GlobalVariable.clouds = false;
                     Rain.TriggerEvent();
                 }
