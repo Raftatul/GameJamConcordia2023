@@ -40,6 +40,8 @@ public class CloudMouvement : MonoBehaviour
     {
         fade = true;
 
+        GlobalVariable.air += 1;
+
         selfCloud.DOFade(0, 0.5f).OnComplete(() => {
             Destroy(gameObject);
         });
