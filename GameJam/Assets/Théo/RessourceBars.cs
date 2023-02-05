@@ -8,19 +8,9 @@ public class RessourceBars : MonoBehaviour
     #region Variables
 
     public Slider slider;
-    public RessourceBars ressourceBar;
+    //public RessourceBars ressourceBar;
     public int maxLevel = 100;
     public int currentLevel;
-
-    //public enum Type
-    //{
-    //    water,
-    //    light,
-    //    nutriment,
-    //    air
-    //}
-
-    //public Type ressourceType;
     
     #endregion
 
@@ -30,18 +20,20 @@ public class RessourceBars : MonoBehaviour
         SetMaxLevel(maxLevel);
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            LevelChange(GlobalVariable.nutriment);
-        }
+    //void Update()
+    //{
+    //    //conditions à déterminer pour modifier les niveaux.
 
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            LevelChange(10);
-        }
-    }
+    //    if (input.getkeydown(keycode.a))
+    //    {
+    //        levelchange(globalvariable.nutriment);
+    //    }
+
+    //    if (input.getkeydown(keycode.z))
+    //    {
+    //        levelchange(10);
+    //    }
+    //}
 
     #region Methods
 
@@ -62,10 +54,5 @@ public class RessourceBars : MonoBehaviour
         SetLevel(currentLevel);
     }
 
-    //void SetGlobalVar(int globalVar, int multip)
-    //{
-    //    globalVar = Mathf.Clamp(globalVar, 0, 100);
-    //    globalVar += multip*10;
-    //}
     #endregion 
 }
