@@ -16,7 +16,7 @@ public class NodeDestroyer : MonoBehaviour
         }
         if (!GetComponentInParent<TreeNode>().isCoreNode)
         {
-            Destroy(transform.parent);
+            Destroy(transform.parent.gameObject);
         }
     }
 }

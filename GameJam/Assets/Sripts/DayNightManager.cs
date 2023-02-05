@@ -14,7 +14,8 @@ public class DayNightManager : MonoBehaviour
     [SerializeField] private float dayTime;
     [SerializeField] private float nightTime;
     private float timer;
-    
+
+    public Color dayColor;
 
     private void FixedUpdate()
     {
@@ -53,6 +54,15 @@ public class DayNightManager : MonoBehaviour
         }
 
         moonSun.DORotate(new Vector3(0, rotateAmount, 0), 1).SetEase(Ease.OutBack);
+
+        if (night)
+        {
+            Camera.main.DOColor(Color.black, 1);
+        }
+        else
+        {
+            Camera.main.DOColor(dayColor, 1);
+        }
         
         timer = 0;
     }

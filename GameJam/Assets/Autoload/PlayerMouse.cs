@@ -77,4 +77,9 @@ public class PlayerMouse : MonoBehaviour
             }
         }
     }
+
+    public void SwitchMod(int newState)
+    {
+        currentMode = (BuildMode)newState;
+    }
 }
