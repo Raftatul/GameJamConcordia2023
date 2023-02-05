@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2223656662567516183}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MoonSun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,6 +98,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9c59aa453bc8fd04b8a00e95667c16ff, type: 3}
       propertyPath: m_Name
       value: sunmoonV2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9c59aa453bc8fd04b8a00e95667c16ff, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c59aa453bc8fd04b8a00e95667c16ff, type: 3}

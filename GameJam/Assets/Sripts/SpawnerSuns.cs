@@ -8,11 +8,13 @@ public class SpawnerSuns : MonoBehaviour
     [Header("Object to Spawn")]
     [SerializeField] private GameObject objectToSpawn;
 
-    [Header("Spawn Rate")]
-    [SerializeField] private float spawnDelay = 2f;
+    [Header("Spawn Param")]
     [SerializeField] private bool ranDelay;
-    [SerializeField] private float timeToWait;
+    [SerializeField] private float spawnDelay = 2f;
+    [SerializeField] private float offset = 2f;
+    private float timeToWait;
 
+    [Header("Screen Bounds")]
     [SerializeField] private Vector2 coordonate;
 
     void Awake()
@@ -35,19 +37,19 @@ public class SpawnerSuns : MonoBehaviour
         WaitForSeconds waitRepeat = new(timeToWait);
         if (GlobalVariable.day)
         {
-            int ran = Random.Range(-(int)coordonate.x, (int)coordonate.x);
+            int ran = Random.Range(-(int)coordonate.x + (int)offset, (int)coordonate.x - (int)offset);
 
             if (GlobalVariable.clouds)
             {
                 int ran2 = Random.Range(0, 100);
                 if (ran2 <= 50)
                 {
-                    Instantiate(objectToSpawn, new Vector2(ran,coordonate.y+3), Quaternion.identity).transform.SetParent(transform);
+                    Instantiate(objectToSpawn, new Vector2(ran,coordonate.y+2), Quaternion.identity).transform.SetParent(transform);
                 }
             }
             else if (!GlobalVariable.rain)
             {
-                Instantiate(objectToSpawn, new Vector2(ran, coordonate.y + 3), Quaternion.identity).transform.SetParent(transform);
+                Instantiate(objectToSpawn, new Vector2(ran, coordonate.y + 2), Quaternion.identity).transform.SetParent(transform);
             }
         }
         yield return waitRepeat;
