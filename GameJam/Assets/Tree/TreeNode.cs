@@ -45,15 +45,17 @@ public class TreeNode : MonoBehaviour
 
     private void Start()
     {
+        if (isCoreNode)
+        {
+            return;
+        }
         switch (nodeType)
         {
             case NodeType.LEAF:
-                TreeCore.instance.leafs.Add(gameObject);
-                TreeCore.instance.CameraHandler();
+                TreeCore.instance.AddNewLeaf(this);
                 break;
             case NodeType.ROOT:
-                TreeCore.instance.roots.Add(gameObject);
-                TreeCore.instance.CameraHandler();
+                TreeCore.instance.AddNewRoot(this);
                 break;
         }
     }
@@ -126,10 +128,10 @@ public class TreeNode : MonoBehaviour
         switch (nodeType)
         {
             case NodeType.LEAF:
-                TreeCore.instance.leafs.Remove(gameObject);
+                TreeCore.instance.leafs.Remove(this);
                 break;
             case NodeType.ROOT:
-                TreeCore.instance.roots.Remove(gameObject);
+                TreeCore.instance.roots.Remove(this);
                 break;
         }
     }

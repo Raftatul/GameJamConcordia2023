@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3426442001489043935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3426442001489043929}
+  - component: {fileID: 3426442001489043928}
+  m_Layer: 0
+  m_Name: SetUpGrid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3426442001489043929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3426442001489043935}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3426442001489043928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3426442001489043935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4858660be49c7c49ae4f2e89f40365b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridX: 50
+  gridZ: 8
+  size: 1
+  Offset: {x: 2, y: 2}
+  Tiles:
+  - {fileID: 411081904082102527, guid: 11e61369e918b864d8e85e5e393bdc5b, type: 3}
+  - {fileID: 2868108054367246225, guid: f9eb8187cf1d76f4681dc290ac0dc685, type: 3}
+  - {fileID: 3827742090483061024, guid: 0b404fa1f7ee4c8479372a47f213db20, type: 3}
+  - {fileID: 3827742090483061024, guid: 0b404fa1f7ee4c8479372a47f213db20, type: 3}
+  - {fileID: 3827742090483061024, guid: 0b404fa1f7ee4c8479372a47f213db20, type: 3}
+  - {fileID: 3827742090483061024, guid: 0b404fa1f7ee4c8479372a47f213db20, type: 3}
+  - {fileID: 3827742090483061024, guid: 0b404fa1f7ee4c8479372a47f213db20, type: 3}
+  startingPoint: {fileID: 0}
+  cellSize: 1

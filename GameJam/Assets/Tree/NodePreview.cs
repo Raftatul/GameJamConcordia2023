@@ -9,7 +9,7 @@ public class NodePreview : MonoBehaviour
     public float minDistance;
     public float maxDistance;
 
-    public List<GameObject> nodeInRange;
+    public List<TreeNode> nodeInRange;
 
     public LineRenderer branch;
 
@@ -57,9 +57,9 @@ public class NodePreview : MonoBehaviour
             }
         }
 
-        GameObject closestNode = GetClosestNode(nodeInRange);
+        TreeNode closestNode = GetClosestNode(nodeInRange);
 
-        if (!closestNode.GetComponent<TreeNode>().CanLinkToNode())
+        if (!closestNode.CanLinkToNode())
         {
             return;
         }
@@ -75,7 +75,7 @@ public class NodePreview : MonoBehaviour
 
         Vector3 worldPos = transform.InverseTransformPoint(closestNode.transform.position);
 
-        if (closestNode.GetComponent<TreeNode>().CanLinkToNode())
+        if (closestNode.CanLinkToNode())
         {            
             float xDifference = transform.position.x - closestNode.transform.position.x;
             float yDifference = transform.position.y - closestNode.transform.position.y;
@@ -97,7 +97,7 @@ public class NodePreview : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             ConsumeResource(distanceCost);
-            BuildLeaf(closestNode);
+            BuildLeaf(closestNode.gameObject);
         }
     }
 
@@ -106,7 +106,7 @@ public class NodePreview : MonoBehaviour
         nodeInRange.Clear();
     }
 
-    public GameObject GetClosestNode(List<GameObject> targetLeaf)
+    public TreeNode GetClosestNode(List<TreeNode> targetLeaf)
     {
         targetLeaf.Sort((x, y) => Vector2.Distance(x.transform.position, transform.position).CompareTo(Vector2.Distance(y.transform.position, transform.position)));
         return targetLeaf[0];

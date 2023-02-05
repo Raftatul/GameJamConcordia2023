@@ -1,14 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TreeCore : MonoBehaviour
 {
     public static TreeCore instance;
     
-    public List<GameObject> leafs;
-    public List<GameObject> roots;
+    public List<TreeNode> leafs;
+    public List<TreeNode> roots;
 
     public TreeNode leafCore;
     public TreeNode rootCore;
@@ -17,6 +19,8 @@ public class TreeCore : MonoBehaviour
 
     int i = 0;
     int t = 5;
+
+    public UnityEvent newNode;
 
     private void Awake()
     {
@@ -28,17 +32,20 @@ public class TreeCore : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
+        leafs.Add(leafCore);
+        roots.Add(rootCore);
     }
 
-    public void CameraHandler()
+    public void AddNewLeaf(TreeNode newLeaf)
     {
-        i++;
-
-        if (i == t)
-        {
-            Camera.main.GetComponent<OrthographicZoom>().ZoomOut();
-            i = 0;
-            //t++;
-        }
+        leafs.Add(newLeaf);
+        newNode.Invoke();
+    }
+    
+    public void AddNewRoot(TreeNode newRoot)
+    {
+        roots.Add(newRoot);
+        newNode.Invoke();
     }
 }
