@@ -66,10 +66,13 @@ public class PlayerMouse : MonoBehaviour
                     currentMode = BuildMode.NONE;
                     break;
                 case BuildMode.LEAF:
-                    currentMode = BuildMode.NONE;
+                    currentMode = BuildMode.DESTRUCTION;
                     break;
                 case BuildMode.NONE:
                     currentMode = BuildMode.LEAF;
+                    break;
+                case BuildMode.DESTRUCTION:
+                    currentMode = BuildMode.ROOT;
                     break;
             }
         }

@@ -18,13 +18,15 @@ public class NodePreview : MonoBehaviour
     
     void Update()
     {
+        SetBuildMod(false);
+        
         switch (nodeObject.nodeType)
         {
             case TreeNode.NodeType.LEAF:
                 foreach (var leaf in TreeCore.instance.leafs)
                 {
                     float distance = Vector3.Distance(leaf.transform.position, transform.position);
-                    if (distance > minDistance && distance < maxDistance)
+                    if (distance < maxDistance)
                     {
                         nodeInRange.Add(leaf);
                     }
@@ -34,19 +36,26 @@ public class NodePreview : MonoBehaviour
                 foreach (var root in TreeCore.instance.roots)
                 {
                      float distance = Vector3.Distance(root.transform.position, transform.position);
-                    if (distance > minDistance && distance < maxDistance)
+                    if (distance < maxDistance)
                     {
                         nodeInRange.Add(root);
                     }
                 }
                 break;
         }
-
-        SetBuildMod(false);
-
+        
         if (nodeInRange.Count == 0)
         {
             return;
+        }
+
+        foreach (var node in nodeInRange)
+        {
+            float distance = Vector3.Distance(node.transform.position, transform.position);
+            if (distance < minDistance)
+            {
+                return;
+            }
         }
 
         GameObject closestNode = GetClosestNode(nodeInRange);
@@ -93,19 +102,7 @@ public class NodePreview : MonoBehaviour
     public GameObject GetClosestNode(List<GameObject> targetLeaf)
     {
         targetLeaf.Sort((x, y) => Vector2.Distance(x.transform.position, transform.position).CompareTo(Vector2.Distance(y.transform.position, transform.position)));
-        
-        GameObject closest = targetLeaf[0];
-        foreach (var leaf in targetLeaf)
-        {
-            if (leaf.GetComponent<TreeNode>().GetDistanceToCore() < closest.GetComponent<TreeNode>().GetDistanceToCore())
-            {
-                if (leaf.GetComponent<TreeNode>().CanLinkToNode())
-                {
-                    closest = leaf;
-                }
-            }
-        }
-        return closest;
+        return targetLeaf[0];
     }
 
     public void SetBuildMod(bool value)
