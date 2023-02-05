@@ -49,6 +49,7 @@ public class RessourcesHarvester : MonoBehaviour
         Debug.Log("wewee");
         yield return new WaitForSeconds(0.1f);
         Player.Air += AirGain;
+        GlobalVariable.air += (int)AirGain;
 
     }
 

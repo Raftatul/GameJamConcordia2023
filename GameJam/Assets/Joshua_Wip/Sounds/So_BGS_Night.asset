@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c2e3289bef568e46b636a52c20eb4ce, type: 3}
   m_Name: So_BGS_Night
   m_EditorClassIdentifier: 
-  Clips: []
-  Volume_min: 0
-  Volume_max: 0
-  Pitch_min: 0
-  Pitch_max: 0
+  Clips:
+  - {fileID: 8300000, guid: 4f0688a2a8d78c045b24d614ce110973, type: 3}
+  - {fileID: 8300000, guid: 465ceff644f27474e8c5756c2a1fe113, type: 3}
+  Volume_min: 1
+  Volume_max: 1
+  Pitch_min: 0.8
+  Pitch_max: 1.2

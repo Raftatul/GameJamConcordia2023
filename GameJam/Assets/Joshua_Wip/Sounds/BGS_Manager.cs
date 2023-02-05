@@ -13,12 +13,22 @@ public class BGS_Manager : MonoBehaviour
 
         if (GlobalVariable.day)
         {
-            Sounds[0].Play(AudioSource);
+            if (AudioSource.clip != Sounds[0])
+            {
+                StartFade(2, 0);
+                Sounds[0].Play(AudioSource);
+                StartFade(2, 1);
+            }
         }
         else
         {
-            // play night
-            Sounds[1].Play(AudioSource);
+            if (AudioSource.clip != Sounds[1])
+            {
+                StartFade(2, 0);
+                // play night
+                Sounds[1].Play(AudioSource);
+                StartFade(2, 1);
+            }
         }
     }
 
@@ -29,12 +39,38 @@ public class BGS_Manager : MonoBehaviour
 
     public void Listener_RainEvent()
     {
-        Sounds[2].Play(AudioSource);
+        if (AudioSource.clip != Sounds[2])
+        {
+            StartFade(2, 0);
+            Sounds[2].Play(AudioSource);
+            StartFade(2, 1);
+        }
     }
 
 
     public void Listener_WindEvent()
     {
-        Sounds[3].Play(AudioSource);
+        if (AudioSource.clip != Sounds[3])
+        {
+            StartFade(2, 0);
+            Sounds[3].Play(AudioSource);
+            StartFade(2, 1);
+        }
     }
+
+
+    public IEnumerator StartFade(float duration, float targetVolume)
+    {
+        float currentTime = 0;
+        float start = AudioSource.volume;
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            AudioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+            yield return null;
+        }
+        yield break;
+    }
+
+
 }

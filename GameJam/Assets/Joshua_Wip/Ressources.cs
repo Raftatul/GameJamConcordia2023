@@ -11,6 +11,10 @@ public class Ressources : MonoBehaviour
     public float RessourcesCurr;
     public float RessourcesPerTick;
 
+    public GameObject Nutriment;
+    bool rooted;
+
+
     public enum ResourceType
     {
         AIR,
@@ -20,6 +24,30 @@ public class Ressources : MonoBehaviour
         NONE,
     }
     public ResourceType Type;
+
+
+    private void Start()
+    {
+        if (Type == ResourceType.NONE)
+        {
+            StartCoroutine(TransformToNutriment());
+        }
+    }
+
+    IEnumerator TransformToNutriment()
+    {
+        yield return new WaitForSeconds(Random.Range(10, 30));
+        if (!rooted && Nutriment.activeInHierarchy)
+        {
+            float random = Random.Range(0, 101);
+            if (random >= 95)
+            {
+                Nutriment.GetComponent<Ressources>().GiveRandomSize();
+                Nutriment.SetActive(true);
+            }
+        }
+        StartCoroutine(TransformToNutriment());
+    }
 
     public void GiveRandomSize()
     {
@@ -46,6 +74,14 @@ public class Ressources : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Root"))
+        {
+            rooted = true;
+        }
+    }
+
 
     public void GetRessources()
     {
@@ -53,7 +89,7 @@ public class Ressources : MonoBehaviour
         if (RessourcesCurr > 0)
         {
             RessourcesCurr = RessourcesCurr - RessourcesPerTick;
-            gain = RessourcesPerTick/2;
+            gain = RessourcesPerTick / 2;
         }
 
         switch (Type)
@@ -82,7 +118,7 @@ public class Ressources : MonoBehaviour
                 break;
         }
 
-    
+
     }
 
 
