@@ -4,12 +4,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using Random = UnityEngine.Random;
 
 public class CloudMouvement : MonoBehaviour
 {
+    [SerializeField] private float minSpeed;
+    [SerializeField] private float maxSpeed;
+    
     [SerializeField] private float mouvSpeed = 40;
     [SerializeField] private Image selfCloud;
     private bool fade = false;
+
+    private void Awake()
+    {
+        mouvSpeed = Random.Range(minSpeed, maxSpeed);
+    }
 
     private void FixedUpdate()
     {

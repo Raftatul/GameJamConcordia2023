@@ -217,7 +217,7 @@ MonoBehaviour:
   connectedNode: []
   pop: {fileID: 1276425139272281725}
   isCoreNode: 0
-  priceMultiplier: 5
+  priceMultiplier: 2
 --- !u!61 &5563550028616685883
 BoxCollider2D:
   m_ObjectHideFlags: 0

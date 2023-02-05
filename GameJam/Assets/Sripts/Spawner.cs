@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour
     [Header("Spawn Param")]
     [SerializeField] private bool ranDelay;
     [SerializeField] private float spawnDelay = 2f;
+    [SerializeField] private float minSpawnDelay;
     [SerializeField] private float offset = 2f;
     private float timeToWait;
 
@@ -25,7 +26,7 @@ public class Spawner : MonoBehaviour
     {
         if (ranDelay)
         {
-            timeToWait = Random.Range(0.5f,spawnDelay);
+            timeToWait = Random.Range(minSpawnDelay, spawnDelay);
         }
         else
         {
@@ -34,9 +35,14 @@ public class Spawner : MonoBehaviour
         WaitForSeconds waitRepeat = new(timeToWait);
         int ran = Random.Range(0 + (int)offset, (int)GlobalVariable.camBounds.y - (int)offset);
 
-        if (true)
+        if (GlobalVariable.rain || GlobalVariable.clouds)
         {
-            Instantiate(objectToSpawn, new Vector2(GlobalVariable.camBounds.x + offset,ran), Quaternion.identity).transform.SetParent(transform);
+             GameObject truc = Instantiate(objectToSpawn, new Vector2(GlobalVariable.camBounds.x + offset,ran), Quaternion.identity);
+             truc.transform.SetParent(transform);
+             Vector3 position = new();
+             position = truc.transform.position;
+             position.z = 0;
+             truc.transform.localPosition = position;
         }
         yield return waitRepeat;
         StartCoroutine(SpawnSeperat());

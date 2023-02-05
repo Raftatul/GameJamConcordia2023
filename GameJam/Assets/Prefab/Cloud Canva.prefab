@@ -8,11 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2876520225325017896}
-  - component: {fileID: 3246983887517285029}
-  - component: {fileID: 786524464376086923}
+  - component: {fileID: 8881365862774010057}
+  - component: {fileID: 4701763393333651950}
   - component: {fileID: 2000135743243259475}
   - component: {fileID: 2435145733019115765}
+  - component: {fileID: 1912019392432454771}
+  - component: {fileID: 9107913833036721359}
   m_Layer: 5
   m_Name: Cloud Canva
   m_TagString: Untagged
@@ -20,64 +21,73 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &2876520225325017896
-RectTransform:
+--- !u!4 &8881365862774010057
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2544718555030080499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -225, y: 45.639343, z: 0}
   m_LocalScale: {x: 0.52, y: 0.52, z: 0.52}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -225, y: 45.639343}
-  m_SizeDelta: {x: 168, y: 78}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &3246983887517285029
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2544718555030080499}
-  m_CullTransparentMesh: 1
---- !u!114 &786524464376086923
-MonoBehaviour:
+--- !u!212 &4701763393333651950
+SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2544718555030080499}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -9999
+  m_Sprite: {fileID: 21300000, guid: 229fe0171c9b9af4e9e6900ace9ceed5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 293215e8cc27d0a4f9f3e9f4dc8ca37e, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 5.12, y: 5.12}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!114 &2000135743243259475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,8 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 547a438eea5e2a94284ce191f789b835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouvSpeed: 40
-  selfCloud: {fileID: 786524464376086923}
+  minSpeed: 0.1
+  maxSpeed: 0.8
+  mouvSpeed: 0.5
+  selfCloud: {fileID: 0}
 --- !u!114 &2435145733019115765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,14 +117,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: ec812539c29d46d40bb75d10406d5baf, type: 3}
-  - {fileID: 21300000, guid: 6c5383d77ee9e0d478e6a903b6cfe9c7, type: 3}
-  - {fileID: 21300000, guid: 293215e8cc27d0a4f9f3e9f4dc8ca37e, type: 3}
-  - {fileID: 21300000, guid: ee98e72d48b34f74ebc5046b884d4d63, type: 3}
-  - {fileID: 21300000, guid: 744ba998ba7562c4ba421c95dbacff91, type: 3}
-  - {fileID: 21300000, guid: 9c9ee8094811dc34db0cf86eeec7b141, type: 3}
-  - {fileID: 21300000, guid: d3d2010c9fff11847a29baba97cc73ff, type: 3}
-  - {fileID: 21300000, guid: 0e4e816e234453c4fa8162a25137f25f, type: 3}
-  - {fileID: 21300000, guid: 5ca8d8216ce0d294998329792c5708dc, type: 3}
-  - {fileID: 21300000, guid: 0a8c1c8ea45de9c45851208de41022ee, type: 3}
-  - {fileID: 21300000, guid: b1ad9adc4586d194cba00761783b8d6d, type: 3}
+  - {fileID: 21300000, guid: 229fe0171c9b9af4e9e6900ace9ceed5, type: 3}
+  - {fileID: 21300000, guid: e8d86d248acfa0d4ea4648ac3b32331a, type: 3}
+  - {fileID: 21300000, guid: ba1dd222de7229d4faf0509b61deba8a, type: 3}
+  - {fileID: 21300000, guid: eca92e62a4bd06e4d9cfeda29f462ba4, type: 3}
+--- !u!114 &1912019392432454771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2544718555030080499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e46a1409fb4ca94aafbf43a8de38217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateOnAwake: 1
+  minRotation: 0
+  maxRotation: 360
+--- !u!114 &9107913833036721359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2544718555030080499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a518f2d6c997645b280ad2301909a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minScale: 0.5
+  maxScale: 1.5
