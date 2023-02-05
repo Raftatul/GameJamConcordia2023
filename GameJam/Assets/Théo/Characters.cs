@@ -5,43 +5,145 @@ using DG.Tweening;
 
 public class Characters : MonoBehaviour
 {
-	#region Variables
+    public Camera cam;
+    public float speed = 1.0f;
+    public Vector3 direction = Vector3.zero;
+    public float bottomLimit = 0.5f;
+    public float topLimit = 0.60f;
+    public float attractionStrength = 1f;
+    public Rigidbody2D charRigid;
+    public float mult = 0.1f;
 
-	public float speedCharacter = 50;
-	public float duration = 10^4;
-	public float strength = 1;
-	public int vibrato = 0;
-	public float randomness = 0;
-	public bool snapping = false;
-	public bool fadeOut = true;
-	public ShakeRandomnessMode randomnessMode;
-	
-	private Rigidbody2D characterRigidbody; // RigidBody de mon personnage
-
-	#endregion Variables
-
-	void Update()
-	{
-        DotWeen();
-
-        Vector3 posHeadingPoint = new Vector3(transform.position.x + 3, transform.position.y + 3, transform.position.z);
-        transform.position = posHeadingPoint;
-
-        Vector3 direction = posHeadingPoint - transform.position;
-		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-		characterRigidbody.rotation = angle;
-		direction.Normalize();
-		Vector2 movement = direction;
-		MoveCharacter(movement);
-	}
-
-    void DotWeen()
+    void Start()
     {
-        transform.DOShakePosition(duration, strength, vibrato, randomness, snapping = false, fadeOut = true, randomnessMode = ShakeRandomnessMode.Full);
+        direction = Random.onUnitSphere;
     }
 
-    void MoveCharacter(Vector2 direction)
-	{
-		characterRigidbody.MovePosition((Vector2)transform.position + (direction * (speedCharacter) * Time.deltaTime));
-	}
+    void Update()
+    {
+            transform.position += direction * speed * Time.deltaTime;
+            direction = (direction + Random.onUnitSphere * 0.1f).normalized;
+
+            Vector3 screenPoint = cam.WorldToViewportPoint(transform.position);
+
+            // Redirection vers l'intérieur lorsque la mouche se rapproche du sol
+            if (screenPoint.y < bottomLimit)
+            {
+                direction = Vector3.Lerp(direction, -direction, (bottomLimit - screenPoint.y) / bottomLimit);
+            }
+
+            // Redirection vers l'intérieur lorsque la mouche se rapproche du plafond
+            if (screenPoint.y > topLimit)
+            {
+                direction = Vector3.Lerp(direction, -direction, (screenPoint.y - topLimit) / topLimit);
+            }
+
+            if (screenPoint.x > 1)
+            {
+                screenPoint.x = 0;
+                transform.position = cam.ViewportToWorldPoint(screenPoint);
+            }
+            else if (screenPoint.x < 0)
+            {
+                screenPoint.x = 1;
+                transform.position = cam.ViewportToWorldPoint(screenPoint);
+            }
+            if (screenPoint.y > 1)
+            {
+                screenPoint.y = 0;
+                transform.position = cam.ViewportToWorldPoint(screenPoint);
+            }
+            else if (screenPoint.y < 0)
+            {
+                screenPoint.y = 1;
+                transform.position = cam.ViewportToWorldPoint(screenPoint);
+            }
+
+            transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+    }
 }
+        
+
+        //transform.position += direction * speed * Time.deltaTime;
+        //direction = (direction + Random.onUnitSphere * 0.1f).normalized;
+
+        //Vector3 screenPoint = camera.WorldToViewportPoint(transform.position);
+        //if (screenPoint.x > 1 || screenPoint.x < 0 || screenPoint.y > 1 || screenPoint.y < 0)
+        //{
+        //    direction = -direction;
+        //}
+
+
+        //        transform.position += direction * speed * Time.deltaTime;
+        //        direction = (direction + Random.onUnitSphere * 0.1f).normalized;
+
+        //        Vector3 screenPoint = camera.WorldToViewportPoint(transform.position);
+        //        if (screenPoint.x > 1)
+        //        {
+        //            screenPoint.x = 0;
+        //            transform.position = camera.ViewportToWorldPoint(screenPoint);
+        //        }
+        //        else if (screenPoint.x < 0)
+        //        {
+        //            screenPoint.x = 1;
+        //            transform.position = camera.ViewportToWorldPoint(screenPoint);
+        //        }
+        //        if (screenPoint.y > 1)
+        //        {
+        //            screenPoint.y = 0;
+        //            transform.position = camera.ViewportToWorldPoint(screenPoint);
+        //        }
+        //        else if (screenPoint.y < 0)
+        //        {
+        //            screenPoint.y = 1;
+        //            transform.position = camera.ViewportToWorldPoint(screenPoint);
+        //        }
+
+        //    transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+
+        //    Vector3 center = new Vector3(0.5f, 0.5f, 0f);
+        //    Vector3 directionToCenter = center - screenPoint;
+        //    direction += directionToCenter * redirectionForce * Time.deltaTime;
+        //}
+
+        //transform.position += direction * speed * Time.deltaTime;
+        //direction = (direction + Random.onUnitSphere * 0.1f).normalized;
+
+        //Vector3 screenPoint = camera.WorldToViewportPoint(transform.position);
+        //if (screenPoint.x > 1 || screenPoint.x < 0 || screenPoint.y > 1 || screenPoint.y < 0)
+        //{
+        //    direction = -direction;
+        //}
+
+
+        //        transform.position += direction * speed * Time.deltaTime;
+        //        direction = (direction + Random.onUnitSphere * 0.1f).normalized;
+
+        //        Vector3 screenPoint = camera.WorldToViewportPoint(transform.position);
+        //        if (screenPoint.x > 1)
+        //        {
+        //            screenPoint.x = 0;
+        //            transform.position = camera.ViewportToWorldPoint(screenPoint);
+        //        }
+        //        else if (screenPoint.x < 0)
+        //        {
+        //            screenPoint.x = 1;
+        //            transform.position = camera.ViewportToWorldPoint(screenPoint);
+        //        }
+        //        if (screenPoint.y > 1)
+        //        {
+        //            screenPoint.y = 0;
+        //            transform.position = camera.ViewportToWorldPoint(screenPoint);
+        //        }
+        //        else if (screenPoint.y < 0)
+        //        {
+        //            screenPoint.y = 1;
+        //            transform.position = camera.ViewportToWorldPoint(screenPoint);
+        //        }
+
+        //    transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+
+        //    Vector3 center = new Vector3(0.5f, 0.5f, 0f);
+        //    Vector3 directionToCenter = center - screenPoint;
+        //    direction += directionToCenter * redirectionForce * Time.deltaTime;
+        //}
