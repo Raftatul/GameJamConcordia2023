@@ -22,9 +22,4 @@ public class CloudMouvement : MonoBehaviour
             });
         }
     }
-
-    private void OnBecameInvisible()
-    {
-        Destroy(gameObject);
-    }
 }

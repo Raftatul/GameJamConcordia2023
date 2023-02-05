@@ -38,7 +38,7 @@ public class Ressources : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Root")
+        if (collision.gameObject.CompareTag("Root"))
         {
             //print(collision.gameObject.GetComponent<Ressources>());
             Player.Tap.Add(this);
