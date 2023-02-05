@@ -125,13 +125,16 @@ public class Ressources : MonoBehaviour
 
             case (ResourceType.NUTRIMENT):
                 Player.Nutriment += gain;
-                GlobalVariable.nutriment += (int)gain;
+                //GlobalVariable.nutriment += (int)gain;
+                GlobalVariable.nutriment = (int)Player.Nutriment;
+                print("NUTRIMENT " + GlobalVariable.nutriment);
 
                 break;
 
             case (ResourceType.WATER):
                 Player.Water += gain;
-                GlobalVariable.water += (int)gain;
+                GlobalVariable.water = (int)Player.Water;
+                //print("water " +  GlobalVariable.water);
 
                 break;
 
