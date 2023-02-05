@@ -32,6 +32,11 @@ public class Ressources : MonoBehaviour
         {
             StartCoroutine(TransformToNutriment());
         }
+
+        if (Type == ResourceType.WATER)
+        {
+            StartCoroutine(RefiilWithRain());
+        }
     }
 
     IEnumerator TransformToNutriment()
@@ -49,18 +54,31 @@ public class Ressources : MonoBehaviour
         StartCoroutine(TransformToNutriment());
     }
 
+    IEnumerator RefiilWithRain()
+    {
+        yield return new WaitForSeconds(Random.Range(1, 3));
+        if (GlobalVariable.rain)
+        {
+            if (RessourcesAmount > RessourcesCurr)
+            {
+                RessourcesCurr += RessourcesAmount / 10;
+            }
+        }
+        StartCoroutine(RefiilWithRain());
+    }
+
     public void GiveRandomSize()
     {
-        float x = Random.Range(0.1f, 1.5f);
-        float y = Random.Range(0.1f, 1.5f);
-        transform.localScale = new Vector2(x, y);
-        transform.DOScale(new Vector2(x, y), 0.01f);
+        float x = Random.Range(0.5f, 1.5f);
+        //float y = Random.Range(0.91f, 1.11f);
+        transform.localScale = new Vector2(x, x);
+        transform.DOScale(new Vector2(x, x), 0.01f);
 
         //Debug.Log(new Vector2(x, y));
         //Debug.Log(gameObject.GetComponent<Transform>().localScale);
         //Debug.Log("______________________");
 
-        RessourcesAmount = (x * y) * 20;
+        RessourcesAmount = (x * x) * 20;
         RessourcesCurr = RessourcesAmount;
     }
 
@@ -96,20 +114,27 @@ public class Ressources : MonoBehaviour
         {
             case (ResourceType.AIR):
                 Player.Air += gain;
+                GlobalVariable.air += (int)gain;
                 break;
 
             case (ResourceType.LIGHT):
                 Player.Light += gain;
+                GlobalVariable.light += (int)gain;
 
                 break;
 
             case (ResourceType.NUTRIMENT):
                 Player.Nutriment += gain;
+                //GlobalVariable.nutriment += (int)gain;
+                GlobalVariable.nutriment = (int)Player.Nutriment;
+                print("NUTRIMENT " + GlobalVariable.nutriment);
 
                 break;
 
             case (ResourceType.WATER):
                 Player.Water += gain;
+                GlobalVariable.water = (int)Player.Water;
+                //print("water " +  GlobalVariable.water);
 
                 break;
 

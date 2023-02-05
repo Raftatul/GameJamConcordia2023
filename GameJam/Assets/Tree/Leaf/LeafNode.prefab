@@ -255,6 +255,7 @@ GameObject:
   - component: {fileID: 454304601577486492}
   - component: {fileID: 6267763190008834071}
   - component: {fileID: 7190667970297206794}
+  - component: {fileID: 3829779640464000047}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -349,7 +350,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 144b1dfbc0cb1cb4787ccda6c833639c, type: 3}
   - {fileID: 21300000, guid: 26dbdc7fcb553724bb2ff0a8072fc32e, type: 3}
   - {fileID: 21300000, guid: 9f5504ab3b38aeb48b87f039693ff9fc, type: 3}
-  - {fileID: 21300000, guid: b7e5e2f4b64e13541b973bb7dd88f922, type: 3}
   - {fileID: 21300000, guid: 4f658a4471b98824ba5a73a39ddd3d9c, type: 3}
   - {fileID: 21300000, guid: 2ab0b304d32f53943a262be1edc0939f, type: 3}
   - {fileID: 21300000, guid: bb47f602cf860a74a9c8d081941f4f99, type: 3}
@@ -376,3 +376,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 42fe5c692f48c184eae425ff431802aa, type: 3}
   - {fileID: 21300000, guid: 09e41c232fef58341a72fe9cd8a2b535, type: 3}
   - {fileID: 21300000, guid: 65e0d45f52e4edb4caec64177407f26f, type: 3}
+--- !u!114 &3829779640464000047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5906884494182044829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e46a1409fb4ca94aafbf43a8de38217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateOnAwake: 1
+  minRotation: -20
+  maxRotation: 20

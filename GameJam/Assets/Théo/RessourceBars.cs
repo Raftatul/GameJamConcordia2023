@@ -20,7 +20,7 @@ public class RessourceBars : MonoBehaviour
 
     public Slider slider;
     //public RessourceBars ressourceBar;
-    private int maxLevel = 300;
+    private int maxLevel = 50;
     public int currentLevel;
     
     #endregion

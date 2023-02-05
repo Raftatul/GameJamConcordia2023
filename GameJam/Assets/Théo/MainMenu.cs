@@ -14,4 +14,13 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(1);
         PlayerMouse.currentMode = PlayerMouse.BuildMode.TRANSITION;
     }
+    public void HowToPLay()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void Credit()
+    {
+        SceneManager.LoadScene(2);
+    }
 }
