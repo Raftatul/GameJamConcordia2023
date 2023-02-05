@@ -24,9 +24,9 @@ public class PlayerRessources : ScriptableObject
     public void Clear()
     {
         Tap.Clear();
-        Nutriment = 50;
-        Air = 50;
-        Water = 50;
-        Light = 50;
+        Nutriment = 12;
+        Air = 12;
+        Water = 12;
+        Light = 12;
     }
 }

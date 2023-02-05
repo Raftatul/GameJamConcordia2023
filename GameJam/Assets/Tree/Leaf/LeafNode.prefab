@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeType: 0
-  resourceConsumes: 0000000003000000
+  resourceConsumes: 0100000003000000
   sprite: {fileID: 6267763190008834071}
   minScale: 0.8
   maxScale: 1.3
