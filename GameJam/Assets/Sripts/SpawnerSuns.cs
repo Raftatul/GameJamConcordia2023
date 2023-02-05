@@ -6,15 +6,14 @@ public class SpawnerSuns : MonoBehaviour
 {
 
     [Header("Object to Spawn")]
-    [SerializeField] private List<GameObject> objectToSpawn;
-
-    [Header("Where to Spawn ?")]
-    [SerializeField] private List<Transform> placeToSpawn;
+    [SerializeField] private GameObject objectToSpawn;
 
     [Header("Spawn Rate")]
     [SerializeField] private float spawnDelay = 2f;
     [SerializeField] private bool ranDelay;
     [SerializeField] private float timeToWait;
+
+    [SerializeField] private Vector2 coordonate;
 
     void Awake()
     {
@@ -23,6 +22,8 @@ public class SpawnerSuns : MonoBehaviour
 
     IEnumerator SpawnSeperat()
     {
+        coordonate = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        
         if (ranDelay)
         {
             timeToWait = Random.Range(0.5f,spawnDelay);
@@ -34,20 +35,19 @@ public class SpawnerSuns : MonoBehaviour
         WaitForSeconds waitRepeat = new(timeToWait);
         if (GlobalVariable.day)
         {
-            int ran2 = Random.Range(0, objectToSpawn.Count);
-            int ran = Random.Range(0, placeToSpawn.Count);
+            int ran = Random.Range(-(int)coordonate.x, (int)coordonate.x);
 
             if (GlobalVariable.clouds)
             {
-                int ran3 = Random.Range(0, 100);
-                if (ran3 <= 50)
+                int ran2 = Random.Range(0, 100);
+                if (ran2 <= 50)
                 {
-                    Instantiate(objectToSpawn[ran2], placeToSpawn[ran].position, placeToSpawn[ran].rotation).transform.SetParent(transform);
+                    Instantiate(objectToSpawn, new Vector2(ran,coordonate.y+3), Quaternion.identity).transform.SetParent(transform);
                 }
             }
             else if (!GlobalVariable.rain)
             {
-                Instantiate(objectToSpawn[ran2], placeToSpawn[ran].position, placeToSpawn[ran].rotation).transform.SetParent(transform);
+                Instantiate(objectToSpawn, new Vector2(ran, coordonate.y + 3), Quaternion.identity).transform.SetParent(transform);
             }
         }
         yield return waitRepeat;

@@ -9,6 +9,7 @@ public class DayNightManager : MonoBehaviour
     public GameEvent TriggerWeather;
 
     [SerializeField] private Transform moonSun;
+    [SerializeField] private int rotateAmount;
 
     [SerializeField] private float dayTime;
     [SerializeField] private float nightTime;
@@ -38,17 +39,21 @@ public class DayNightManager : MonoBehaviour
     {
         TriggerWeather.TriggerEvent();
         night = GlobalVariable.day;
+
         GlobalVariable.day = !GlobalVariable.day;
         GlobalVariable.startOfDN = true;
+        
+        if (rotateAmount < 360)
+        {
+            rotateAmount += 90;
+        }
+        else
+        {
+            rotateAmount = 90;
+        }
 
-        if (GlobalVariable.day)
-        {
-            moonSun.DORotate(new Vector3(0, 90, 0), 1).SetEase(Ease.OutBack);
-        }
-        if (!GlobalVariable.day)
-        {
-            moonSun.DORotate(new Vector3(0, 0, 0), 1).SetEase(Ease.OutBack);
-        }
+        moonSun.DORotate(new Vector3(0, rotateAmount, 0), 1).SetEase(Ease.OutBack);
+        
         timer = 0;
     }
 }
