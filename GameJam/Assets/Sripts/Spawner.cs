@@ -5,15 +5,16 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [Header("Object to Spawn")]
-    [SerializeField] private List<GameObject> objectToSpawn;                      // The object to spawn
+    [SerializeField] private GameObject objectToSpawn;
 
-    [Header("Where to Spawn ?")]
-    [SerializeField] private List<Transform> placeToSpawn;                  // l=List of places to spawn your object
-
-    [Header("Spawn Rate")]
-    [SerializeField] private float spawnDelay = 2f;                              // Every ... Secondes
+    [Header("Spawn Param")]
     [SerializeField] private bool ranDelay;
-    [SerializeField] private float timeToWait;
+    [SerializeField] private float spawnDelay = 2f;
+    [SerializeField] private float offset = 2f;
+    private float timeToWait;
+
+    [Header("Screen Bounds")]
+    [SerializeField] private Vector2 cordonates = GlobalVariable.camBounds;
 
     void Awake()
     {
@@ -31,11 +32,11 @@ public class Spawner : MonoBehaviour
             timeToWait = spawnDelay;
         }
         WaitForSeconds waitRepeat = new(timeToWait);
-        if (GlobalVariable.clouds)
+        int ran = Random.Range(0 + (int)offset, (int)GlobalVariable.camBounds.y - (int)offset);
+
+        if (true)
         {
-            int ran2 = Random.Range(0,objectToSpawn.Count);
-            int ran = Random.Range(0, placeToSpawn.Count);
-            Instantiate(objectToSpawn[ran2], placeToSpawn[ran].position, placeToSpawn[ran].rotation).transform.SetParent(transform);
+            Instantiate(objectToSpawn, new Vector2(GlobalVariable.camBounds.x + offset,ran), Quaternion.identity).transform.SetParent(transform);
         }
         yield return waitRepeat;
         StartCoroutine(SpawnSeperat());

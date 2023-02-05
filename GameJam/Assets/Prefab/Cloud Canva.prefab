@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3246983887517285029}
   - component: {fileID: 786524464376086923}
   - component: {fileID: 2000135743243259475}
+  - component: {fileID: 2435145733019115765}
   m_Layer: 5
   m_Name: Cloud Canva
   m_TagString: Untagged
@@ -37,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -225, y: 45.639343}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 168, y: 78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3246983887517285029
 CanvasRenderer:
@@ -67,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 65f0e363b74cf5845ab8c3fbc14f39ac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 293215e8cc27d0a4f9f3e9f4dc8ca37e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -91,3 +92,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouvSpeed: 40
   selfCloud: {fileID: 786524464376086923}
+--- !u!114 &2435145733019115765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2544718555030080499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce7b1ebefdb05649a9daae723c4e424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: ec812539c29d46d40bb75d10406d5baf, type: 3}
+  - {fileID: 21300000, guid: 6c5383d77ee9e0d478e6a903b6cfe9c7, type: 3}
+  - {fileID: 21300000, guid: 293215e8cc27d0a4f9f3e9f4dc8ca37e, type: 3}
+  - {fileID: 21300000, guid: ee98e72d48b34f74ebc5046b884d4d63, type: 3}
+  - {fileID: 21300000, guid: 744ba998ba7562c4ba421c95dbacff91, type: 3}
+  - {fileID: 21300000, guid: 9c9ee8094811dc34db0cf86eeec7b141, type: 3}
+  - {fileID: 21300000, guid: d3d2010c9fff11847a29baba97cc73ff, type: 3}
+  - {fileID: 21300000, guid: 0e4e816e234453c4fa8162a25137f25f, type: 3}
+  - {fileID: 21300000, guid: 5ca8d8216ce0d294998329792c5708dc, type: 3}
+  - {fileID: 21300000, guid: 0a8c1c8ea45de9c45851208de41022ee, type: 3}
+  - {fileID: 21300000, guid: b1ad9adc4586d194cba00761783b8d6d, type: 3}

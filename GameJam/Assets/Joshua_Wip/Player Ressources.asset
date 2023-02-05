@@ -15,16 +15,7 @@ MonoBehaviour:
   Tap:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  Nutriment: 24
+  Nutriment: 0
   Air: 0
-  Water: 13
+  Water: 20.25
   Light: 0
