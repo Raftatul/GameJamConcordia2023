@@ -16,11 +16,11 @@ public class MainMenu : MonoBehaviour
     }
     public void HowToPLay()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(3);
     }
 
     public void Credit()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
 }
