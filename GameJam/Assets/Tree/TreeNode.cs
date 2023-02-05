@@ -62,7 +62,7 @@ public class TreeNode : MonoBehaviour
 
         nodeToConnect.sprite.transform.DOScale(Vector3.zero, 2).OnComplete(() =>
         {
-            nodeToConnect.sprite.transform.DOScale(randomScale, 0.5f).SetEase(Ease.OutBack);
+            nodeToConnect.sprite.transform.DOScale(randomScale, 0.3f).SetEase(Ease.OutBack);
             pop.Play();
         });
 

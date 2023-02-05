@@ -126,7 +126,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 322a7231a93bb7945a7acde5b5c50235, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 98f715cdf8990b44a99c400fb1c66b28, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -302,7 +302,6 @@ MonoBehaviour:
   connectedNode: []
   pop: {fileID: 1276425139272281725}
   isCoreNode: 0
-  maxDistanceToCore: 4
 --- !u!61 &1047260770964616632
 BoxCollider2D:
   m_ObjectHideFlags: 0
