@@ -13,14 +13,23 @@ public class TreeNode : MonoBehaviour
         LEAF,
         ROOT
     }
-
-    public Transform branchs;
+    
+    public enum ResourceConsume
+    {
+        WATER,
+        AIR,
+        NUTRIMENT,
+        LIGHT
+    }
+    
+    public NodeType nodeType = NodeType.LEAF;
+    public ResourceConsume[] resourceConsumes;
+    
     public SpriteRenderer sprite;
 
     public float minScale;
     public float maxScale;
 
-    public NodeType nodeType = NodeType.LEAF;
     public LineRenderer branchRef;
     public TreeNode nodeParent;
     
@@ -31,6 +40,8 @@ public class TreeNode : MonoBehaviour
     public static int maxNodeConnection = 4;
 
     public bool isCoreNode;
+
+    public int priceMultiplier = 2;
 
     private void Start()
     {
@@ -105,14 +116,6 @@ public class TreeNode : MonoBehaviour
         return 1 + nodeParent.GetDistanceToCore();
     }
 
-    public void ClearBranchs()
-    {
-        foreach (Transform child in branchs.transform)
-        {
-            Destroy(child.gameObject);
-        }
-    }
-
     private void OnDestroy()
     {
         if (!nodeParent)
@@ -128,6 +131,18 @@ public class TreeNode : MonoBehaviour
             case NodeType.ROOT:
                 TreeCore.instance.roots.Remove(gameObject);
                 break;
+        }
+    }
+    
+    private void OnMouseDown()
+    {
+        if (PlayerMouse.currentMode != PlayerMouse.BuildMode.DESTRUCTION)
+        {
+            return;
+        }
+        if (!isCoreNode)
+        {
+            Destroy(gameObject);
         }
     }
 }
