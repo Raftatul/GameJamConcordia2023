@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
+using DG.Tweening;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class NodeDestroyer : MonoBehaviour
@@ -15,7 +16,7 @@ public class NodeDestroyer : MonoBehaviour
         }
         if (!GetComponentInParent<TreeNode>().isCoreNode)
         {
-            Destroy(transform.parent.gameObject);
+            Destroy(transform.parent);
         }
     }
 }
