@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4f658a4471b98824ba5a73a39ddd3d9c, type: 3}
   m_Color: {r: 0, g: 1, b: 0.092865944, a: 0.29803923}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,6 +110,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3080548073149259953}
     m_Modifications:
+    - target: {fileID: -2033671735213449370, guid: fc9b1d8cc88bc07419c8472be047c50e, type: 3}
+      propertyPath: m_Parameters.colorGradient.atime2
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: -2033671735213449370, guid: fc9b1d8cc88bc07419c8472be047c50e, type: 3}
+      propertyPath: m_Parameters.colorGradient.atime3
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: -2033671735213449370, guid: fc9b1d8cc88bc07419c8472be047c50e, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2033671735213449370, guid: fc9b1d8cc88bc07419c8472be047c50e, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2033671735213449370, guid: fc9b1d8cc88bc07419c8472be047c50e, type: 3}
+      propertyPath: m_Parameters.colorGradient.key2.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2033671735213449370, guid: fc9b1d8cc88bc07419c8472be047c50e, type: 3}
+      propertyPath: m_Parameters.colorGradient.key3.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2033671735213449370, guid: fc9b1d8cc88bc07419c8472be047c50e, type: 3}
+      propertyPath: m_Parameters.colorGradient.m_NumAlphaKeys
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1649631549153640937, guid: fc9b1d8cc88bc07419c8472be047c50e, type: 3}
       propertyPath: m_RootOrder
       value: 0

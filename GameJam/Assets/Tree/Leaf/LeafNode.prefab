@@ -208,7 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   branchs: {fileID: 2779165246568140552}
   sprite: {fileID: 6267763190008834071}
-  minScale: 0.7
+  minScale: 0.8
   maxScale: 1.3
   nodeType: 0
   branchRef: {fileID: -2033671735213449370, guid: fc9b1d8cc88bc07419c8472be047c50e, type: 3}

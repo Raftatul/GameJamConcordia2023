@@ -17,7 +17,7 @@ public class PlayerMouse : MonoBehaviour
         TRANSITION
     }
 
-    public static BuildMode currentMode;
+    public static BuildMode currentMode = BuildMode.NONE;
 
     void Update()
     {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class NodePreview : MonoBehaviour
@@ -68,7 +69,7 @@ public class NodePreview : MonoBehaviour
         if (closestLeaf.GetComponent<TreeNode>().CanLinkToNode())
         {
             branch.positionCount = 3;
-            branch.SetPosition(1, new Vector3(0,worldPos.y));
+            branch.SetPosition(1, new Vector3(worldPos.x,0));
             branch.SetPosition(2, worldPos);
         }
         
@@ -104,12 +105,16 @@ public class NodePreview : MonoBehaviour
         switch (value)
         {
             case true:
-                    GetComponent<SpriteRenderer>().color = Color.green;
-                    branch.enabled = true;
+                Color whiteTransparent = Color.white;
+                whiteTransparent.a = 0.5f;
+                GetComponent<SpriteRenderer>().color = whiteTransparent;
+                branch.enabled = true;
                 break;
             case false:
-                    GetComponent<SpriteRenderer>().color = Color.red;
-                    branch.enabled = false;
+                Color redTransparent = Color.red;
+                whiteTransparent.a = 0.5f;
+                GetComponent<SpriteRenderer>().color = redTransparent;
+                branch.enabled = false;
                 break;
         }
     }
