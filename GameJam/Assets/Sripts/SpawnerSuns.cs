@@ -30,7 +30,7 @@ public class SpawnerSuns : MonoBehaviour
         }
         else
         {
-            timeToWait = spawnDelay;
+            timeToWait = spawnDelay - (Camera.main.orthographicSize * 0.01f);
         }
         WaitForSeconds waitRepeat = new(timeToWait);
         if (GlobalVariable.day)
