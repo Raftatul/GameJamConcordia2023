@@ -36,7 +36,7 @@ public class Characters : MonoBehaviour
         spriteRenderer.sprite = sprites[randomIndex];
     }
 
-    void Update()
+    void FixedUpdate()
     {
         transform.position += direction * speed * Time.deltaTime;
         direction = (direction + Random.onUnitSphere * 0.1f).normalized;
@@ -60,7 +60,7 @@ public class Characters : MonoBehaviour
             direction = -direction;
         }
 
-        else if ((screenPoint.y <= 0.5)&&(isDottedWeen == false))
+        else if ((screenPoint.y <= 0.52f)&&(isDottedWeen == false))
         {
             isDottedWeen = true;
 

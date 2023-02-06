@@ -17,7 +17,7 @@ public class CharSpawner : MonoBehaviour
 
     void Update()
     {
-        Vector3 screenPoint = cam.WorldToViewportPoint(posChar);
+        Vector3 screenPoint = transform.position;
 
         spawnTimer += Time.deltaTime;
         if (spawnTimer >= spawnInterval)

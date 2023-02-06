@@ -58,7 +58,7 @@ public class PlayerMouse : MonoBehaviour
                 break;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown("~"))
         {
             switch (currentMode)
             {

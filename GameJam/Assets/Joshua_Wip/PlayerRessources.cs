@@ -28,5 +28,10 @@ public class PlayerRessources : ScriptableObject
         Air = 12;
         Water = 12;
         Light = 12;
+
+        GlobalVariable.nutriment = (int)Nutriment;
+        GlobalVariable.water = (int)Air;
+        GlobalVariable.air = (int)Water;
+        GlobalVariable.light = (int)Light;
     }
 }
